@@ -1,0 +1,1162 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="하트를 많이 받은 시중교재부터 숫자변형 문항으로 출시해요. 수학비서 교재의 숲.">
+<title>교재의 숲</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Jua&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+/* Layout: a sunny sky with puffy clouds over rolling hills, a wooden signboard of steps, then
+   chunky cream cards on a dotted lawn (ranked list + sticky seed-planting form). Night mode = starry meadow with fireflies. */
+:root{
+  --sky:#BFE7F5; --sky-2:#E2F4E6; --cloud:#FFFFFF; --star:transparent; --fly:0;
+  --grass:#B8DF92; --grass-2:#A9D581; --hill:#B8DF92; --hill-2:#A3D27D; --hill-3:#C9E8A6; --mtn:#93CC86; --face:#5A3B26; --mtn-2:#AEDA9E; --ridge:#D2F0BE;
+  --surface:#FFFBF0; --surface-2:#F4EBD4; --board:#F6E2BB; --board-edge:#D8B57F; --edge:#E3CFA5;
+  --ink:#4B3A28; --muted:#87745B; --line:#EADBB9;
+  --leaf:#6CC47E; --leaf-2:#3E9F5C; --leaf-3:#A9E2AA; --leaf-edge:#2F7E47; --bark:#B57E50; --soil:#DDBB8E;
+  --heart:#FF6F91; --heart-soft:#FFE2EA; --heart-edge:#E24E73; --sun:#FFD65A; --fruit:#FF8A5B;
+  --making:#E2902A; --making-soft:#FFEFD2; --flower-1:#FF9FB7; --flower-2:#FFE07A; --flower-3:#FFFFFF;
+  --display:"Jua","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --body:"Gowun Dodum","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --radius:22px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --sky:#28315E; --sky-2:#23404A; --cloud:#3E4878; --star:#FFF4C2; --fly:1;
+  --grass:#21402E; --grass-2:#294B36; --hill:#21402E; --hill-2:#1B3727; --hill-3:#284A35; --mtn:#1C392A; --mtn-2:#22412F; --ridge:#2F5A42;
+  --surface:#2D2C3D; --surface-2:#38364B; --board:#43394B; --board-edge:#2A2333; --edge:#1C1B27;
+  --ink:#F6EEDF; --muted:#BDB0A0; --line:#48445C;
+  --leaf:#72C985; --leaf-2:#55B472; --leaf-3:#3D7E51; --leaf-edge:#2B6B40; --bark:#9F7049; --soil:#6A5138;
+  --heart:#FF7E9D; --heart-soft:#4C2B3C; --heart-edge:#C9466A; --sun:#FFEDB0; --fruit:#FF9C70;
+  --making:#F2B04E; --making-soft:#4A3A1E; --flower-1:#E57C98; --flower-2:#D9BE5C; --flower-3:#BFC6E6;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --sky:#28315E; --sky-2:#23404A; --cloud:#3E4878; --star:#FFF4C2; --fly:1;
+  --grass:#21402E; --grass-2:#294B36; --hill:#21402E; --hill-2:#1B3727; --hill-3:#284A35; --mtn:#1C392A; --mtn-2:#22412F; --ridge:#2F5A42;
+  --surface:#2D2C3D; --surface-2:#38364B; --board:#43394B; --board-edge:#2A2333; --edge:#1C1B27;
+  --ink:#F6EEDF; --muted:#BDB0A0; --line:#48445C;
+  --leaf:#72C985; --leaf-2:#55B472; --leaf-3:#3D7E51; --leaf-edge:#2B6B40; --bark:#9F7049; --soil:#6A5138;
+  --heart:#FF7E9D; --heart-soft:#4C2B3C; --heart-edge:#C9466A; --sun:#FFEDB0; --fruit:#FF9C70;
+  --making:#F2B04E; --making-soft:#4A3A1E; --flower-1:#E57C98; --flower-2:#D9BE5C; --flower-3:#BFC6E6;
+  color-scheme:dark}
+/* the sky follows the real sunrise/sunset (set by script); wins over the viewer theme */
+:root[data-sky="day"]{
+  --sky:#BFE7F5; --sky-2:#E2F4E6; --cloud:#FFFFFF; --star:transparent; --fly:0;
+  --grass:#B8DF92; --grass-2:#A9D581; --hill:#B8DF92; --hill-2:#A3D27D; --hill-3:#C9E8A6; --mtn:#93CC86; --face:#5A3B26; --mtn-2:#AEDA9E; --ridge:#D2F0BE;
+  --surface:#FFFBF0; --surface-2:#F4EBD4; --board:#F6E2BB; --board-edge:#D8B57F; --edge:#E3CFA5;
+  --ink:#4B3A28; --muted:#87745B; --line:#EADBB9;
+  --leaf:#6CC47E; --leaf-2:#3E9F5C; --leaf-3:#A9E2AA; --leaf-edge:#2F7E47; --bark:#B57E50; --soil:#DDBB8E;
+  --heart:#FF6F91; --heart-soft:#FFE2EA; --heart-edge:#E24E73; --sun:#FFD65A; --fruit:#FF8A5B;
+  --making:#E2902A; --making-soft:#FFEFD2; --flower-1:#FF9FB7; --flower-2:#FFE07A; --flower-3:#FFFFFF;
+  --display:"Jua","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --body:"Gowun Dodum","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --radius:22px;
+  color-scheme:light}
+:root[data-sky="night"]{
+  --sky:#28315E; --sky-2:#23404A; --cloud:#3E4878; --star:#FFF4C2; --fly:1;
+  --grass:#21402E; --grass-2:#294B36; --hill:#21402E; --hill-2:#1B3727; --hill-3:#284A35; --mtn:#1C392A; --mtn-2:#22412F; --ridge:#2F5A42;
+  --surface:#2D2C3D; --surface-2:#38364B; --board:#43394B; --board-edge:#2A2333; --edge:#1C1B27;
+  --ink:#F6EEDF; --muted:#BDB0A0; --line:#48445C;
+  --leaf:#72C985; --leaf-2:#55B472; --leaf-3:#3D7E51; --leaf-edge:#2B6B40; --bark:#9F7049; --soil:#6A5138;
+  --heart:#FF7E9D; --heart-soft:#4C2B3C; --heart-edge:#C9466A; --sun:#FFEDB0; --fruit:#FF9C70;
+  --making:#F2B04E; --making-soft:#4A3A1E; --flower-1:#E57C98; --flower-2:#D9BE5C; --flower-3:#BFC6E6;
+   color-scheme:dark}
+*{box-sizing:border-box}
+body{
+  background-color:var(--grass);
+  background-image:radial-gradient(var(--grass-2) 2.2px,transparent 2.8px),radial-gradient(var(--grass-2) 2.2px,transparent 2.8px);
+  background-size:36px 36px;background-position:0 0,18px 18px;
+  color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1100px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--heart);outline-offset:2px;border-radius:10px}
+
+/* hero: sky, clouds, stars, fireflies */
+.hero{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--sky) 0%,var(--sky-2) 72%,var(--grass) 100%)}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(var(--star) 1.2px,transparent 1.6px),radial-gradient(var(--star) 1px,transparent 1.4px);
+  background-size:90px 70px,130px 110px;background-position:10px 6px,60px 40px;mask-image:linear-gradient(#000 0%,transparent 55%);-webkit-mask-image:linear-gradient(#000 0%,transparent 55%)}
+.cloud{position:absolute;width:120px;height:38px;border-radius:40px;background:var(--cloud);opacity:.95;animation:drift 70s linear infinite}
+.cloud::before,.cloud::after{content:"";position:absolute;background:var(--cloud);border-radius:50%}
+.cloud::before{width:56px;height:56px;left:16px;top:-28px}
+.cloud::after{width:44px;height:44px;left:58px;top:-20px}
+.cloud.a{top:58px;left:-140px}
+.cloud.b{top:128px;left:-140px;transform:scale(.7);animation-duration:95s;animation-delay:-40s}
+.cloud.c{top:30px;left:-140px;transform:scale(.55);animation-duration:120s;animation-delay:-85s}
+@keyframes drift{to{translate:calc(100vw + 280px) 0}}
+.firefly{position:absolute;width:6px;height:6px;border-radius:50%;background:var(--sun);box-shadow:0 0 10px 3px var(--sun);opacity:calc(var(--fly) * .9);animation:float 6s ease-in-out infinite}
+.firefly.f1{left:12%;top:62%}.firefly.f2{left:34%;top:48%;animation-delay:-2s}.firefly.f3{left:71%;top:58%;animation-delay:-4s}.firefly.f4{left:88%;top:40%;animation-delay:-1s}
+@keyframes float{50%{transform:translate(14px,-12px);opacity:calc(var(--fly) * .35)}}
+.hero .wrap{position:relative;padding-block:30px 0;display:grid;gap:12px;justify-items:start}
+.eyebrow{font-family:var(--display);font-size:15px;color:var(--leaf-edge);background:var(--surface);border:2px solid var(--line);border-radius:999px;padding:2px 12px;box-shadow:0 3px 0 var(--edge)}
+.sign{background:var(--board);border:3px solid var(--board-edge);border-radius:26px;padding:8px 24px 4px;box-shadow:0 6px 0 var(--board-edge);rotate:-1.5deg;position:relative}
+.sign::before,.sign::after{content:"";position:absolute;top:50%;width:9px;height:9px;border-radius:50%;background:var(--board-edge);translate:0 -50%}
+.sign::before{left:9px}.sign::after{right:9px}
+.hero h1{font-size:clamp(42px,7.5vw,72px);line-height:1.1;color:var(--ink)}
+.hero h1 .dot{color:var(--heart)}
+.lede{max-width:34em;color:var(--ink);margin:0;font-size:16px;background:color-mix(in srgb,var(--surface) 75%,transparent);border-radius:16px;padding:6px 12px}
+.lede b{color:var(--leaf-edge)}
+.stats{display:flex;flex-wrap:wrap;gap:8px}
+.stat{display:flex;align-items:baseline;gap:6px;background:var(--surface);border:2px solid var(--line);border-radius:999px;padding:4px 14px;font-size:14px;color:var(--muted);box-shadow:0 3px 0 var(--edge)}
+.stat b{font-family:var(--display);font-weight:400;font-size:21px;color:var(--ink);font-variant-numeric:tabular-nums}
+.stat.h b{color:var(--heart)}
+.forest{display:block;width:100%;height:auto;margin-top:2px;justify-self:stretch}
+.forest .mtn{fill:var(--mtn)} .forest .mtn-2{fill:var(--mtn-2)} .forest .ridge{fill:none;stroke:var(--ridge);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;opacity:.75}
+.forest .hill{fill:var(--hill)} .forest .hill-2{fill:var(--hill-2)} .forest .hill-3{fill:var(--hill-3)}
+.forest .sun{fill:var(--sun)}
+.forest .fl1{fill:var(--flower-1)} .forest .fl2{fill:var(--flower-2)} .forest .fl3{fill:var(--flower-3)}
+.forest .lbl-bg{fill:var(--surface);stroke:var(--line);stroke-width:2}
+.forest .lbl{font-family:var(--display);font-size:16px;fill:var(--ink)}
+.forest .lbl-n{font-family:var(--display);font-size:15px;fill:var(--heart)}
+.forest .lbl-n{transform-box:fill-box;transform-origin:50% 100%}
+.forest .lbl-n.bump{animation:bump .6s cubic-bezier(.3,1.9,.5,1)}
+@keyframes bump{0%{transform:scale(.4)}45%{transform:scale(1.7)}100%{transform:scale(1)}}
+.forest .ft{cursor:pointer}
+.forest .ft:hover .c1,.forest .ft:focus .c1{fill:var(--leaf-2)}
+/* sun (day) / sleepy moon (night) in the top-right sky */
+.orb{position:absolute;left:84%;top:90px;translate:-50% -50%;width:92px;height:92px;z-index:1;transition:left .9s ease,top .9s ease;overflow:visible;cursor:pointer;animation:bob 4.5s ease-in-out infinite;transition:scale .35s cubic-bezier(.3,1.8,.5,1)}
+.orb .happy{opacity:0;transition:opacity .2s}
+.orb .grin{fill:var(--face);stroke:var(--face);stroke-width:1.5;stroke-linejoin:round}
+.orb:hover,.orb.smile{scale:1.14;animation:bob 4.5s ease-in-out infinite,giggle .42s ease-in-out 3}
+@keyframes giggle{25%{rotate:-9deg}75%{rotate:9deg}}
+.orb .teeth{fill:#FFFFFF} .orb .tooth{fill:none;stroke:var(--face);stroke-width:1.1;stroke-linecap:round}
+.orb .pupil{fill:var(--face)}
+.orb .sparkle{fill:#FFFFFF;transform-box:fill-box;transform-origin:center;animation:twinkle .7s ease-in-out infinite}
+@keyframes twinkle{50%{transform:scale(.35) rotate(45deg)}}
+.orb:hover .happy,.orb.smile .happy{opacity:1}
+.orb:hover .sleep,.orb:hover .mouth,.orb:hover .eyes,.orb:hover .zz,
+.orb.smile .sleep,.orb.smile .mouth,.orb.smile .eyes,.orb.smile .zz{opacity:0}
+.orb:hover .blush,.orb.smile .blush{opacity:.8}
+.orb:hover .zz,.orb.smile .zz{animation:none;opacity:0}
+.orb .disc{fill:var(--orb-c,var(--sun))}
+.orb .rays{fill:var(--orb-c,var(--sun));transform-origin:50px 50px;animation:spin 24s linear infinite}
+.orb .day{opacity:calc(1 - var(--fly))} .orb .night{opacity:var(--fly)}
+.orb .crater{fill:var(--face);opacity:.08}
+.orb .eyes{fill:var(--face);transform-origin:50px 47px;animation:blink 5s infinite}
+.orb .lid{fill:none;stroke:var(--face);stroke-width:2.6;stroke-linecap:round}
+.orb .blush{fill:var(--heart);opacity:.45}
+.orb .zz{font-family:var(--display);font-size:13px;fill:var(--sun);animation:zz 3s ease-in-out infinite}
+.orb .z2{font-size:10px;animation-delay:-1.5s}
+@keyframes bob{50%{transform:translateY(7px) rotate(-4deg)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes blink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+@keyframes zz{0%{transform:translate(0,4px);opacity:0}40%{opacity:var(--fly)}100%{transform:translate(6px,-8px);opacity:0}}
+@media (max-width:560px){.orb{width:62px;height:62px}}
+.hero .wrap{z-index:2;pointer-events:none}
+.hero .wrap>*{pointer-events:auto}
+.skytime{position:absolute;top:122px;right:max(16px,env(safe-area-inset-right,0px));z-index:3;width:240px;background:var(--surface);border:2px solid var(--line);border-radius:18px;padding:6px 12px 4px;box-shadow:0 3px 0 var(--edge);display:grid;gap:2px}
+.st-head{display:flex;align-items:baseline;gap:6px;font-size:12px;color:var(--muted);min-height:22px}
+.st-head b{font-family:var(--display);font-weight:400;font-size:17px;color:var(--ink);font-variant-numeric:tabular-nums}
+.st-head .st-phase{font-family:var(--display);font-size:15px;color:var(--leaf-2)}
+.st-now{margin-left:auto;align-self:center;border:2px solid var(--leaf-edge);background:var(--leaf);color:#fff;border-radius:999px;font-size:11px;font-weight:700;padding:0 8px;cursor:pointer;box-shadow:0 2px 0 var(--leaf-edge)}
+#st-range{-webkit-appearance:none;appearance:none;width:100%;height:14px;margin:4px 0 0;border-radius:999px;background:var(--st-track,linear-gradient(90deg,#28315E,#BFE7F5,#F08A78,#28315E));border:2px solid var(--line);cursor:grab}
+#st-range:active{cursor:grabbing}
+#st-range::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:24px;height:24px;border-radius:50%;background:var(--sun);border:3px solid var(--surface);box-shadow:0 2px 0 var(--edge),0 0 10px var(--sun)}
+#st-range::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--sun);border:3px solid var(--surface);box-shadow:0 0 10px var(--sun)}
+#st-range:focus-visible{outline:3px solid var(--heart);outline-offset:2px}
+.st-ticks{position:relative;height:16px;font-size:10.5px;color:var(--muted)}
+.st-ticks span{position:absolute;top:1px;transform:translateX(-50%);white-space:nowrap}
+.st-sun{font-size:10.5px;color:var(--muted);text-align:center;padding-bottom:2px}
+@media (max-width:760px){.skytime{position:static;width:100%;order:5}.forest{order:6}.bubble{order:7}}
+
+/* butterflies (day) and a shooting star (night) */
+.bfly{position:absolute;width:22px;height:18px;z-index:1;opacity:calc(1 - var(--fly));pointer-events:none}
+.bfly .wing{transform-box:fill-box;animation:flap .28s ease-in-out infinite alternate}
+.bfly .l{transform-origin:100% 50%} .bfly .r{transform-origin:0 50%}
+.bfly .body{fill:var(--ink)}
+.bfly.b1 .wing{fill:var(--flower-1)} .bfly.b2 .wing{fill:var(--flower-2)}
+.bfly.b1{top:46%;left:-30px;animation:flutter1 22s linear infinite}
+.bfly.b2{top:30%;left:-30px;animation:flutter2 30s linear infinite;animation-delay:-12s}
+@keyframes flap{to{transform:scaleX(.25)}}
+@keyframes flutter1{0%{translate:0 0}25%{translate:25vw -40px}50%{translate:50vw 10px}75%{translate:75vw -30px}100%{translate:calc(100vw + 60px) 0}}
+@keyframes flutter2{0%{translate:0 0}30%{translate:30vw 30px}60%{translate:60vw -20px}100%{translate:calc(100vw + 60px) 20px}}
+.shoot{position:absolute;top:40px;left:30%;width:90px;height:2px;border-radius:2px;background:linear-gradient(90deg,transparent,var(--star));opacity:0;transform:rotate(-18deg);animation:shoot 9s ease-in infinite;animation-delay:3s;z-index:1}
+@keyframes shoot{0%,90%{opacity:0;translate:0 0}93%{opacity:var(--fly)}100%{opacity:0;translate:-220px 70px}}
+
+/* swaying trees, wiggling sprouts, swinging sign */
+.sway{transform-box:fill-box;transform-origin:50% 100%;animation:sway 3.6s ease-in-out infinite alternate}
+@keyframes sway{from{transform:rotate(-2.2deg)}to{transform:rotate(2.2deg)}}
+.sway.small{animation-duration:1.8s}
+.sign{transform-origin:50% -20px;animation:swing 5s ease-in-out infinite}
+@keyframes swing{0%,100%{rotate:-1.8deg}50%{rotate:1.2deg}}
+.stat{transition:transform .2s cubic-bezier(.3,1.8,.5,1)}
+.stat:hover{transform:translateY(-3px) rotate(-1.5deg)}
+.g-card:hover .g-tree svg{animation:wiggle .6s ease-in-out}
+@keyframes wiggle{25%{transform:rotate(-5deg)}75%{transform:rotate(5deg)}}
+.g-tree svg{transform-origin:50% 92%}
+/* only the textbook list scrolls (wide screens); tabs and filters stay put */
+.scroller{max-height:max(420px,calc(100vh - 160px));overflow-y:auto;overscroll-behavior:contain;padding:4px 6px 10px 2px;margin-right:-6px;border-radius:18px;scrollbar-width:thin;scrollbar-color:var(--leaf) transparent}
+.scroller::-webkit-scrollbar{width:10px}
+.scroller::-webkit-scrollbar-thumb{background:var(--leaf);border-radius:10px;border:2px solid transparent;background-clip:padding-box}
+.scroller::-webkit-scrollbar-track{background:transparent}
+.scroller:focus-visible{outline-offset:-3px}
+@media (max-width:900px){.scroller{max-height:none;overflow:visible;margin-right:0;padding:0}}
+.forest .rt{cursor:pointer;outline:none}
+.forest .rt-in{transform-box:fill-box;transform-origin:50% 100%;opacity:.62;transition:transform .45s cubic-bezier(.3,1.8,.5,1),opacity .25s}
+.forest .rt:hover .rt-in,.forest .rt:focus-visible .rt-in,.forest .rt.on .rt-in{transform:scale(1.4);opacity:1}
+.forest .rt:focus-visible .c1{fill:var(--leaf-2)}
+.bubble{position:absolute;left:0;top:0;z-index:5;pointer-events:none;white-space:nowrap;opacity:0;
+  transform:translate(-50%,-100%) scale(.3) rotate(-6deg);transform-origin:50% 100%;
+  background:var(--surface);border:2.5px solid var(--line);border-radius:18px;padding:6px 14px 6px;box-shadow:0 4px 0 var(--edge);
+  font-family:var(--display);font-size:16px;color:var(--ink);line-height:1.25;text-align:center;
+  transition:transform .4s cubic-bezier(.3,1.8,.5,1),opacity .2s}
+.bubble.on{opacity:1;transform:translate(-50%,-100%) scale(1) rotate(0)}
+.bubble::after{content:"";position:absolute;left:50%;bottom:-9px;width:13px;height:13px;background:var(--surface);border-right:2.5px solid var(--line);border-bottom:2.5px solid var(--line);transform:translateX(-50%) rotate(45deg)}
+.bubble small{display:block;font-family:var(--body);font-size:11.5px;font-weight:700;color:var(--fruit)}
+.bubble .c{color:var(--leaf-2);margin-left:4px}
+.forest .hint{font-family:var(--display);font-size:20px;fill:var(--ink)}
+@media (max-width:640px){.forest .lbl,.forest .lbl-n,.forest .lbl-bg{display:none}}
+
+/* tree parts */
+.soil{fill:var(--soil)} .seed{fill:var(--bark)} .trunk{fill:var(--bark)}
+.c1{fill:var(--leaf)} .c2{fill:var(--leaf-2)} .c3{fill:var(--leaf-3)}
+.fruit{fill:var(--fruit)} .stem{stroke:var(--leaf-2);stroke-width:2.5;fill:none;stroke-linecap:round}
+
+/* wooden signboard of steps */
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-block:22px 10px;padding:16px 18px;background:var(--board);border:3px solid var(--board-edge);border-radius:var(--radius);box-shadow:0 5px 0 var(--board-edge)}
+.step{display:flex;gap:12px;align-items:flex-start;min-width:0}
+.step .n{flex:none;width:34px;height:34px;border-radius:50%;background:var(--surface);border:2px solid var(--board-edge);color:var(--leaf-edge);display:grid;place-items:center;font-family:var(--display);font-size:18px}
+.step b{display:block;font-family:var(--display);font-weight:400;font-size:19px}
+.step span{color:var(--muted);font-size:13.5px}
+@media (max-width:760px){.steps{grid-template-columns:1fr}}
+
+/* status */
+.status{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);margin-block:6px 16px;background:var(--surface);border:2px solid var(--line);border-radius:999px;padding:4px 14px}
+.status i{width:9px;height:9px;border-radius:50%;background:var(--muted);flex:none}
+.status.live i{background:var(--leaf);animation:live 1.8s ease-in-out infinite} .status.local i{background:var(--making)}
+@keyframes live{0%,100%{box-shadow:0 0 0 0 var(--leaf-3)}50%{box-shadow:0 0 0 6px transparent}}
+.mv{font-family:var(--body);font-size:11px;font-weight:700;animation:mvIn .3s ease}
+.mv.up{color:var(--leaf-2)} .mv.down{color:var(--muted)}
+@keyframes mvIn{from{opacity:0;transform:translateY(4px)}}
+
+/* main grid */
+.main{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:24px;align-items:start;padding-block:0 64px}
+@media (max-width:900px){.main{grid-template-columns:1fr}}
+.panel{background:color-mix(in srgb,var(--surface) 55%,transparent);border-radius:28px;padding:14px;min-width:0}
+
+.tabs{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.tab{border:2px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 16px;font-family:var(--display);font-size:18px;color:var(--muted);cursor:pointer;box-shadow:0 3px 0 var(--edge)}
+.tab .cnt{font-family:var(--body);font-size:13px;margin-left:4px}
+.tab[aria-selected="true"]{background:var(--leaf);border-color:var(--leaf-edge);color:#fff;box-shadow:0 3px 0 var(--leaf-edge)}
+
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px}
+.seg{display:inline-flex;background:var(--surface-2);border-radius:999px;padding:3px;border:2px solid var(--line)}
+.seg button{border:0;background:none;border-radius:999px;padding:5px 14px;font-size:14px;cursor:pointer;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);font-weight:700;box-shadow:0 2px 0 var(--edge)}
+.field{background:var(--surface);border:2px solid var(--line);border-radius:999px;padding:6px 14px;font-size:14px;min-width:0}
+.filters .field{flex:1 1 150px}
+.filters select.field{flex:0 1 150px}
+
+/* growing list */
+.list{display:grid;gap:12px}
+.g-card{display:grid;grid-template-columns:36px 66px minmax(0,1fr) auto;gap:12px;align-items:center;background:var(--surface);border:2px solid var(--line);border-radius:var(--radius);padding:10px 14px 10px 10px;box-shadow:0 4px 0 var(--edge);scroll-margin-top:20px}
+.g-card.flash{animation:flash 1.4s ease}
+@keyframes flash{0%,40%{border-color:var(--heart);box-shadow:0 4px 0 var(--heart-edge),0 0 0 5px var(--heart-soft)}}
+.rank{display:grid;justify-items:center;line-height:1.1;font-family:var(--display);font-size:21px;color:var(--muted);font-variant-numeric:tabular-nums}
+.rank.top{color:var(--heart)}
+.g-tree{background:var(--surface-2);border-radius:18px}
+.g-tree svg{width:66px;height:66px;display:block}
+.g-tree.grow svg{animation:grow .9s cubic-bezier(.3,1.6,.5,1)}
+@keyframes grow{0%{transform:scale(.6);transform-origin:50% 92%}100%{transform:scale(1);transform-origin:50% 92%}}
+.g-title{font-family:var(--display);font-size:20px;line-height:1.25;overflow-wrap:anywhere}
+.g-title .course{color:var(--leaf-2);margin-left:5px}
+.g-meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:13px;color:var(--muted);margin-top:3px}
+.pill{font-size:12px;font-weight:700;border-radius:999px;padding:1px 10px}
+.pill.making{background:var(--making-soft);color:var(--making)}
+.pill.request{background:var(--surface-2);color:var(--leaf-2)}
+.pill.mine{background:var(--heart-soft);color:var(--heart)}
+.g-next{font-size:12.5px;color:var(--muted);margin-top:2px}
+.g-next b{color:var(--ink)}
+.heart-btn{display:flex;flex-direction:column;align-items:center;border:2px solid var(--line);background:var(--surface);border-radius:18px;padding:7px 12px 4px;min-width:64px;cursor:pointer;box-shadow:0 4px 0 var(--edge);transition:transform .1s,box-shadow .1s,background .2s}
+.heart-btn svg{width:26px;height:26px;fill:none;stroke:var(--heart);stroke-width:2.2}
+.heart-btn span{font-size:13px;font-weight:700;font-variant-numeric:tabular-nums;color:var(--muted)}
+.heart-btn:hover{border-color:var(--heart)}
+.heart-btn[aria-pressed="true"]{background:var(--heart-soft);border-color:var(--heart);box-shadow:0 4px 0 var(--heart-edge)}
+.heart-btn[aria-pressed="true"] svg{fill:var(--heart)}
+.heart-btn[aria-pressed="true"] span{color:var(--heart)}
+.heart-btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--edge)}
+.heart-btn.pop svg{animation:pop .45s cubic-bezier(.3,1.8,.5,1)}
+@keyframes pop{0%{transform:scale(.5)}100%{transform:scale(1)}}
+@media (max-width:520px){.g-card{grid-template-columns:24px 50px minmax(0,1fr) auto;gap:8px}.g-tree svg{width:50px;height:50px}.g-title{font-size:17px}}
+
+/* released grid */
+.r-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+.r-card{background:var(--surface);border:2px solid var(--line);border-radius:var(--radius);padding:12px 14px 14px;display:grid;gap:2px;align-content:start;box-shadow:0 4px 0 var(--edge)}
+.r-card svg{width:58px;height:58px;margin:-4px 0 2px -6px}
+.r-card .g-title{font-size:18px}
+.r-card .num{font-size:12.5px;color:var(--muted)}
+.empty{text-align:center;color:var(--muted);padding:36px 16px;background:var(--surface);border:2px dashed var(--line);border-radius:var(--radius)}
+.empty b{font-family:var(--display);font-weight:400;font-size:20px;color:var(--ink);display:block;margin-bottom:4px}
+.more{margin-top:14px;text-align:center;font-size:14px}
+.more a{color:var(--leaf-edge);font-weight:700;background:var(--surface);border:2px solid var(--line);border-radius:999px;padding:6px 16px;display:inline-block;text-decoration:none;box-shadow:0 3px 0 var(--edge)}
+
+/* request form */
+.plant{position:sticky;top:calc(env(safe-area-inset-top,0px) + 16px);background:var(--surface);border:2px solid var(--line);border-radius:26px;padding:20px;display:grid;gap:12px;box-shadow:0 5px 0 var(--edge)}
+.plant h2{font-size:26px}
+.plant p{margin:0;color:var(--muted);font-size:14px}
+.plant label{display:grid;gap:5px;font-size:13px;font-weight:700}
+.plant .field{border-radius:14px;padding:9px 12px;width:100%}
+.plant .seg{width:100%}.plant .seg button{flex:1}
+.btn{border:2px solid var(--leaf-edge);border-radius:16px;padding:10px;font-family:var(--display);font-size:19px;background:var(--leaf);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 4px 0 var(--leaf-edge);transition:transform .1s,box-shadow .1s}
+.btn:hover{background:var(--leaf-2)} .btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--leaf-edge)}
+.hint{font-size:12.5px;color:var(--muted)}
+.myreqs{display:grid;gap:4px;font-size:13px;color:var(--muted);border-top:2px dashed var(--line);padding-top:10px}
+.myreqs b{color:var(--ink)}
+@media (max-width:900px){.plant{position:static}}
+.results{display:grid;gap:6px;max-height:320px;overflow-y:auto;overscroll-behavior:contain}
+.res{display:flex;align-items:center;gap:8px;justify-content:space-between;background:var(--surface-2);border-radius:14px;padding:7px 8px 7px 12px}
+.res-t{min-width:0;display:grid;line-height:1.3}
+.res-t b{font-family:var(--display);font-weight:400;font-size:15.5px;overflow-wrap:anywhere}
+.res-t span{font-size:12px;color:var(--muted)}
+.mini{flex:none;border:2px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:3px 11px;font-size:12.5px;font-weight:700;cursor:pointer;box-shadow:0 2px 0 var(--edge);white-space:nowrap}
+.mini:active{transform:translateY(2px);box-shadow:none}
+.mini.go{background:var(--leaf);border-color:var(--leaf-edge);color:#fff;box-shadow:0 2px 0 var(--leaf-edge)}
+.mini.danger{background:var(--heart);border-color:var(--heart-edge);color:#fff;box-shadow:0 2px 0 var(--heart-edge)}
+.mini:disabled{opacity:.5;cursor:default}
+.myreqs-h{display:flex;justify-content:space-between;font-weight:700;color:var(--ink)}
+.myreqs-h span{color:var(--muted);font-weight:400}
+.myreq{display:grid;gap:4px;background:var(--surface-2);border-radius:14px;padding:7px 10px}
+.myreq-row{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.mr-ask{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:12.5px;color:var(--ink)}
+.kb-link{font-size:12.5px;font-weight:700;color:var(--leaf-2);justify-self:start;margin-top:-4px}
+.chip{font-size:11px;font-weight:700;border-radius:999px;padding:0 8px;margin-left:4px;white-space:nowrap}
+.chip.pending{background:var(--making-soft);color:var(--making)} .chip.approved{background:var(--surface);color:var(--leaf-2)} .chip.rejected{background:var(--heart-soft);color:var(--heart)}
+.mr-note{font-size:12px;color:var(--muted)}
+.modal{position:fixed;inset:0;z-index:80;display:grid;place-items:center;padding:20px;background:color-mix(in srgb,#000 45%,transparent)}
+.modal-card{width:min(360px,100%);background:var(--surface);border:3px solid var(--line);border-radius:26px;box-shadow:0 6px 0 var(--edge);padding:20px 20px 18px;text-align:center;display:grid;gap:8px;justify-items:center;animation:modalIn .4s cubic-bezier(.3,1.7,.5,1)}
+@keyframes modalIn{from{transform:scale(.6) rotate(-4deg);opacity:0}}
+.modal-tree svg{width:88px;height:88px;display:block}
+.modal-card h3{font-size:22px}
+.modal-card p{margin:0;color:var(--muted);font-size:14px}
+.modal-card p b{color:var(--ink)}
+.modal-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:6px}
+.modal-actions .btn{font-size:16px;padding:8px 16px}
+.modal-actions .mini{font-size:14px;padding:7px 14px}
+
+/* hearts burst + toast */
+.burst{position:fixed;left:0;top:0;pointer-events:none;z-index:50}
+.burst svg{position:absolute;width:var(--s);height:var(--s);fill:var(--c);left:-8px;top:-8px;animation:fly var(--d) cubic-bezier(.2,.7,.3,1) forwards}
+@keyframes fly{0%{transform:translate(0,0) scale(.3) rotate(0);opacity:1}70%{opacity:1}100%{transform:translate(var(--x),var(--y)) scale(1) rotate(var(--r));opacity:0}}
+.toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 22px);transform:translate(-50%,20px);background:var(--board);color:var(--ink);border:3px solid var(--board-edge);box-shadow:0 4px 0 var(--board-edge);padding:8px 18px;border-radius:999px;font-family:var(--display);font-size:16px;opacity:0;transition:.25s;pointer-events:none;z-index:60;max-width:calc(100vw - 32px);text-align:center}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+<!-- 배포 설정은 config.js 에서 (Supabase 주소와 공개 키). 없으면 데모 모드 -->
+<script src="config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+</head>
+<body>
+
+
+<header class="hero">
+  <svg class="orb" viewBox="0 0 100 100" aria-hidden="true">
+    <g class="rays"><g class="day">
+      <rect x="47" y="0" width="6" height="14" rx="3"/><rect x="47" y="86" width="6" height="14" rx="3"/>
+      <rect x="0" y="47" width="14" height="6" rx="3"/><rect x="86" y="47" width="14" height="6" rx="3"/>
+      <rect x="47" y="0" width="6" height="14" rx="3" transform="rotate(45 50 50)"/><rect x="47" y="86" width="6" height="14" rx="3" transform="rotate(45 50 50)"/>
+      <rect x="0" y="47" width="14" height="6" rx="3" transform="rotate(45 50 50)"/><rect x="86" y="47" width="14" height="6" rx="3" transform="rotate(45 50 50)"/>
+    </g></g>
+    <circle class="disc" cx="50" cy="50" r="31"/>
+    <g class="night"><circle class="crater" cx="64" cy="36" r="5"/><circle class="crater" cx="35" cy="66" r="3.5"/></g>
+    <g class="face">
+      <g class="day eyes"><ellipse cx="40" cy="47" rx="3.2" ry="4.2"/><ellipse cx="60" cy="47" rx="3.2" ry="4.2"/></g>
+      <g class="night sleep"><path class="lid" d="M35 48 q5 5 10 0"/><path class="lid" d="M55 48 q5 5 10 0"/></g>
+      <path class="lid mouth" d="M44 58 q6 6 12 0"/>
+      <g class="happy"><path class="lid" d="M33 41 l11 1"/><path class="lid" d="M55 38 q6 -5 12 0"/><path class="lid" d="M34 47 h10"/><path class="lid" d="M56 46 h10"/><circle class="pupil" cx="42" cy="49.6" r="2.3"/><circle class="pupil" cx="64" cy="48.6" r="2.3"/><path class="grin" d="M28 55 Q50 79 72 52 Q50 61 28 55 Z"/><path class="teeth" d="M31.5 56.6 Q50 63 69 54.6 L67.6 58.4 Q50 67 33 60.4 Z"/><path class="tooth" d="M38 58.6 v3.6 M44 59.8 v3.8 M50 60.2 v3.8 M56 59.4 v3.8 M62 57.6 v3.6"/><path class="sparkle" d="M77 43 L78.6 47.4 L83 49 L78.6 50.6 L77 55 L75.4 50.6 L71 49 L75.4 47.4 Z"/></g>
+      <ellipse class="blush" cx="33" cy="57" rx="5" ry="3"/><ellipse class="blush" cx="67" cy="57" rx="5" ry="3"/>
+    </g>
+    <text class="night zz" x="80" y="22">z</text><text class="night zz z2" x="88" y="12">z</text>
+  </svg>
+  <div class="cloud a" aria-hidden="true"></div><div class="cloud b" aria-hidden="true"></div><div class="cloud c" aria-hidden="true"></div>
+  <svg class="bfly b1" viewBox="0 0 24 20" aria-hidden="true"><g class="wing l"><ellipse cx="7" cy="7" rx="6" ry="5.5"/><ellipse cx="8" cy="14" rx="4" ry="3.6"/></g><g class="wing r"><ellipse cx="17" cy="7" rx="6" ry="5.5"/><ellipse cx="16" cy="14" rx="4" ry="3.6"/></g><rect class="body" x="11" y="4" width="2" height="13" rx="1"/></svg>
+  <svg class="bfly b2" viewBox="0 0 24 20" aria-hidden="true"><g class="wing l"><ellipse cx="7" cy="7" rx="6" ry="5.5"/><ellipse cx="8" cy="14" rx="4" ry="3.6"/></g><g class="wing r"><ellipse cx="17" cy="7" rx="6" ry="5.5"/><ellipse cx="16" cy="14" rx="4" ry="3.6"/></g><rect class="body" x="11" y="4" width="2" height="13" rx="1"/></svg>
+  <i class="shoot" aria-hidden="true"></i>
+  <i class="firefly f1" aria-hidden="true"></i><i class="firefly f2" aria-hidden="true"></i><i class="firefly f3" aria-hidden="true"></i><i class="firefly f4" aria-hidden="true"></i>
+  <div class="wrap">
+    
+    <div class="skytime" id="skytime">
+      <div class="st-head"><span class="st-phase" id="st-phase">밤</span><b id="st-time">--:--</b><span id="st-live">지금</span><button class="st-now" id="st-now" type="button" hidden>지금으로</button></div>
+      <input type="range" id="st-range" min="0" max="1435" step="5" value="720" aria-label="하루 중 시간을 바꿔 하늘 보기" aria-valuetext="">
+      <div class="st-ticks" id="st-ticks" aria-hidden="true"></div>
+      <div class="st-sun" id="st-sun"></div>
+    </div>
+    <div class="eyebrow">수학비서 문제은행 · 시중교재 숫자변형</div>
+    <div class="sign"><h1>교재의 숲<span class="dot">.</span></h1></div>
+    <p class="lede">하트를 많이 받은 교재가 먼저 자라요. 다 자란 나무는 <b>원본 1문항당 숫자변형 3문항</b>으로 문제은행에 열매를 맺습니다.</p>
+    <div class="stats" id="stats"></div>
+    <svg class="forest" id="forest" viewBox="0 -40 1000 290" aria-label="열매 맺은 교재와 하트 순위가 높은 교재 나무들"></svg>
+    <div class="bubble" id="bubble" role="status" aria-live="polite"></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="steps">
+    <div class="step"><div class="n">1</div><div><b>씨앗 심기</b><span>원하는 교재가 숲에 없으면 요청해 주세요.</span></div></div>
+    <div class="step"><div class="n">2</div><div><b>하트로 키우기</b><span>하트가 쌓일수록 나무가 자라고 순위가 올라가요.</span></div></div>
+    <div class="step"><div class="n">3</div><div><b>열매 맺기</b><span>순위가 높은 교재부터 숫자변형 문항으로 출시해요.</span></div></div>
+  </div>
+  <div class="status" id="status"><i></i><span>숲을 불러오는 중이에요…</span></div>
+
+  <div class="main">
+    <section class="panel" aria-label="교재 목록">
+      <div class="tabs" role="tablist">
+        <button class="tab" role="tab" id="tab-grow" aria-selected="true">자라는 교재<span class="cnt" id="cnt-grow"></span></button>
+        <button class="tab" role="tab" id="tab-done" aria-selected="false">열매 맺은 교재<span class="cnt" id="cnt-done"></span></button>
+      </div>
+      <div class="filters">
+        <div class="seg" id="lvl" role="group" aria-label="학교급">
+          <button aria-pressed="true" data-v="all">전체</button><button aria-pressed="false" data-v="중등">중등</button><button aria-pressed="false" data-v="고등">고등</button>
+        </div>
+        <select class="field" id="course" aria-label="과목"></select>
+        <select class="field" id="pub" aria-label="출판사"></select>
+        <input class="field" id="q" type="search" placeholder="교재명·과목 검색" aria-label="교재 검색">
+      </div>
+      <div id="list" class="scroller" tabindex="0" aria-label="교재 목록 (스크롤)"></div>
+    </section>
+
+    <aside class="plant" aria-labelledby="plant-h">
+      <h2 id="plant-h">씨앗 심기</h2>
+      <p>숲에 없는 교재를 요청하면 확인을 거쳐 새 씨앗이 돼요. 하트를 모아 키워 주세요.</p>
+      <form id="form" novalidate>
+        <div style="display:grid;gap:12px">
+          <label>학교급
+            <div class="seg" id="f-lvl" role="group" aria-label="요청 학교급"><button type="button" aria-pressed="true" data-v="중등">중등</button><button type="button" aria-pressed="false" data-v="고등">고등</button></div>
+          </label>
+          <label for="f-course">과목
+            <select class="field" id="f-course" required></select>
+          </label>
+          <label for="f-title">교재명
+            <input class="field" id="f-title" maxlength="60" placeholder="예: 라이트쎈 중등 수학 1-1" required autocomplete="off">
+          </label>
+          <label for="f-pub">출판사
+            <input class="field" id="f-pub" maxlength="30" list="f-pubs" placeholder="예: 좋은책신사고" required autocomplete="off">
+            <datalist id="f-pubs"></datalist>
+          </label>
+          <label for="f-url">교보문고 링크
+            <input class="field" id="f-url" type="url" inputmode="url" maxlength="300" placeholder="https://product.kyobobook.co.kr/detail/S000…" required autocomplete="off">
+          </label>
+          <a class="kb-link" id="f-kb" href="https://search.kyobobook.co.kr/search?keyword=" target="_blank" rel="noopener">교보문고에서 찾아 링크 복사하기 ↗</a>
+          <button class="btn" id="f-go" type="submit">씨앗 심기</button>
+          <div class="hint">교보문고에 있는 교재만 심을 수 있어요. 관리자가 링크와 중복을 확인한 뒤 숲에 심어 드려요. 교재명은 저작권 보호를 위해 일부 가려서 보여요.</div>
+        </div>
+      </form>
+      <div class="modal" id="modal" hidden>
+        <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-h" aria-describedby="modal-p">
+          <div class="modal-tree" id="modal-tree" aria-hidden="true"></div>
+          <h3 id="modal-h"></h3>
+          <p id="modal-p"></p>
+          <div class="modal-actions" id="modal-actions"></div>
+        </div>
+      </div>
+      <div class="myreqs" id="myreqs" hidden></div>
+    </aside>
+  </div>
+</div>
+<div class="burst" id="burst" aria-hidden="true"></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const CATALOG = [{"id":"rpm-m11","t":"R*M","c":"중1-1","l":"중등","g":"중1","v":"2022개정","p":"개념원리","s":"released"},{"id":"ssen-m11","t":"ㅆ","c":"중1-1","l":"중등","g":"중1","v":"2022개정","p":"좋은책신사고","s":"released"},{"id":"black-m11","t":"블*라벨","c":"중1-1","l":"중등","g":"중1","v":"2015개정","p":"진학사","s":"released"},{"id":"aclass-m11","t":"에*급 수학","c":"중1-1","l":"중등","g":"","v":"2022개정","p":"에이급","s":"making"},{"id":"check-m11","t":"유*체크 N제","c":"중1-1","l":"중등","g":"","v":"2022개정","p":"천재교육","s":"making"},{"id":"gojaengi-m11","t":"유형+내신 고*이","c":"중1-1","l":"중등","g":"","v":"2022개정","p":"이투스","s":"making"},{"id":"ilpum-m11","t":"일*","c":"중1-1","l":"중등","g":"중1","v":"2015개정","p":"좋은책신사고","s":"released"},{"id":"choisang-m11","t":"최*위수학","c":"중1-1","l":"중등","g":"","v":"2022개정","p":"디딤돌","s":"making"},{"id":"pungsanja-m11","t":"풍*자 필수유형","c":"중1-1","l":"중등","g":"","v":"2022개정","p":"지학사","s":"making"},{"id":"rpm-m12","t":"R*M","c":"중1-2","l":"중등","g":"중1","v":"2022개정","p":"개념원리","s":"released"},{"id":"ssen-m12","t":"ㅆ","c":"중1-2","l":"중등","g":"중1","v":"2022개정","p":"좋은책신사고","s":"released"},{"id":"gaeyulight-m12","t":"개념+유형 라*트 유형편","c":"중1-2","l":"중등","g":"","v":"2022개정","p":"비상교육","s":"making"},{"id":"power-m12","t":"개념+유형 파* 유형편","c":"중1-2","l":"중등","g":"","v":"2022개정","p":"비상교육","s":"making"},{"id":"black-m12","t":"블*라벨","c":"중1-2","l":"중등","g":"중1","v":"2022개정","p":"진학사","s":"released"},{"id":"aclass-m12","t":"에*급 수학","c":"중1-2","l":"중등","g":"","v":"2022개정","p":"에이급","s":"making"},{"id":"check-m12","t":"유*체크 N제","c":"중1-2","l":"중등","g":"","v":"2022개정","p":"천재교육","s":"making"},{"id":"gojaengi-m12","t":"유형+내신 고*이","c":"중1-2","l":"중등","g":"","v":"2022개정","p":"이투스","s":"making"},{"id":"ilpum-m12","t":"일*","c":"중1-2","l":"중등","g":"중1","v":"2022개정","p":"좋은책신사고","s":"released"},{"id":"pungsanja-m12","t":"풍*자 필수유형","c":"중1-2","l":"중등","g":"","v":"2022개정","p":"지학사","s":"making"},{"id":"rpm-m21","t":"R*M","c":"중2-1","l":"중등","g":"중2","v":"2022개정","p":"개념원리","s":"released"},{"id":"ssen-m21","t":"ㅆ","c":"중2-1","l":"중등","g":"중2","v":"2015개정","p":"좋은책신사고","s":"released"},{"id":"gaeyulight-m21","t":"개념+유형 라*트 유형편","c":"중2-1","l":"중등","g":"","v":"2022개정","p":"비상교육","s":"making"},{"id":"power-m21","t":"개념+유형 파* 유형편","c":"중2-1","l":"중등","g":"","v":"2022개정","p":"비상교육","s":"making"},{"id":"lightssen-m21","t":"라이트ㅆ","c":"중2-1","l":"중등","g":"","v":"2022개정","p":"좋은책신사고","s":"making"},{"id":"black-m21","t":"블*라벨","c":"중2-1","l":"중등","g":"중2","v":"2015개정","p":"지학사","s":"released"},{"id":"aclass-m21","t":"에*급 수학","c":"중2-1","l":"중등","g":"","v":"2022개정","p":"에이급","s":"making"},{"id":"check-m21","t":"유*체크 N제","c":"중2-1","l":"중등","g":"","v":"2022개정","p":"천재교육","s":"making"},{"id":"gojaengi-m21","t":"유형+내신 고*이","c":"중2-1","l":"중등","g":"","v":"2022개정","p":"이투스","s":"making"},{"id":"ilpum-m21","t":"일*","c":"중2-1","l":"중등","g":"중2","v":"2015개정","p":"좋은책신사고","s":"released"},{"id":"pungsanja-m21","t":"풍*자 필수유형","c":"중2-1","l":"중등","g":"","v":"2022개정","p":"지학사","s":"making"},{"id":"rpm-m22","t":"R*M","c":"중2-2","l":"중등","g":"중2","v":"2022개정","p":"개념원리","s":"released"},{"id":"ssen-m22","t":"ㅆ","c":"중2-2","l":"중등","g":"중2","v":"2022개정","p":"좋은책신사고","s":"released"},{"id":"black-m22","t":"블*라벨","c":"중2-2","l":"중등","g":"중2","v":"2022개정","p":"진학사","s":"released"},{"id":"aclass-m22","t":"에*급 수학","c":"중2-2","l":"중등","g":"","v":"2022개정","p":"에이급","s":"making"},{"id":"gojaengi-m22","t":"유형+내신 고*이","c":"중2-2","l":"중등","g":"","v":"2022개정","p":"이투스","s":"making"},{"id":"ilpum-m22","t":"일*","c":"중2-2","l":"중등","g":"중2","v":"2015개정","p":"좋은책신사고","s":"released"},{"id":"choisang-m22","t":"최*위수학","c":"중2-2","l":"중등","g":"","v":"2022개정","p":"디딤돌","s":"making"},{"id":"pungsanja-m22","t":"풍*자 필수유형","c":"중2-2","l":"중등","g":"","v":"2022개정","p":"지학사","s":"making"},{"id":"rpm-m31","t":"R*M","c":"중3-1","l":"중등","g":"중3","v":"2022개정","p":"개념원리","s":"released"},{"id":"ssen-m31","t":"ㅆ","c":"중3-1","l":"중등","g":"중3","v":"2015개정","p":"좋은책신사고","s":"released"},{"id":"black-m31","t":"블*라벨","c":"중3-1","l":"중등","g":"중3","v":"2015개정","p":"진학사","s":"released"},{"id":"ilpum-m31","t":"일*","c":"중3-1","l":"중등","g":"중3","v":"2022개정","p":"좋은책신사고","s":"released"},{"id":"choisang-m31","t":"최*위수학","c":"중3-1","l":"중등","g":"","v":"2022개정","p":"디딤돌","s":"making"},{"id":"rpm-m32","t":"R*M","c":"중3-2","l":"중등","g":"중3","v":"2015개정","p":"개념원리","s":"released"},{"id":"ssen-m32","t":"ㅆ","c":"중3-2","l":"중등","g":"중3","v":"2022개정","p":"좋은책신사고","s":"released"},{"id":"gaeyulight-m32","t":"개념+유형 라*트 유형편","c":"중3-2","l":"중등","g":"","v":"2022개정","p":"비상교육","s":"making"},{"id":"power-m32","t":"개념+유형 파* 유형편","c":"중3-2","l":"중등","g":"","v":"2022개정","p":"비상교육","s":"making"},{"id":"rpm-c1","t":"R*M","c":"공통수학1","l":"고등","g":"고1 공통","v":"2022개정","p":"개념원리","s":"released"},{"id":"ssen-c1","t":"ㅆ","c":"공통수학1","l":"고등","g":"고1 공통","v":"2022개정","p":"좋은책신사고","s":"released"},{"id":"lightssen-c1","t":"라이트ㅆ","c":"공통수학1","l":"고등","g":"","v":"2022개정","p":"좋은책신사고","s":"making"},{"id":"mapletxt-c1","t":"마*교과서","c":"공통수학1","l":"고등","g":"","v":"2022개정","p":"희망에듀","s":"making"},{"id":"maplesyn-c1","t":"마*시너지","c":"공통수학1","l":"고등","g":"","v":"2022개정","p":"희망에듀","s":"making"},{"id":"black-c1","t":"블*라벨","c":"공통수학1","l":"고등","g":"고1 공통","v":"2022개정","p":"진학사","s":"released"},{"id":"bible-c1","t":"수학의 바*블 유형ON","c":"공통수학1","l":"고등","g":"","v":"2022개정","p":"이투스북","s":"making"},{"id":"biblelight-c1","t":"수학의 바*블 유형ON 라이트","c":"공통수학1","l":"고등","g":"","v":"2022개정","p":"이투스북","s":"making"},{"id":"gojaengi-c1","t":"유형+내신 고*이","c":"공통수학1","l":"고등","g":"고1 공통","v":"2022개정","p":"이투스","s":"released"},{"id":"manlep-c1","t":"유형만*","c":"공통수학1","l":"고등","g":"","v":"2022개정","p":"비상교육","s":"making"},{"id":"ilpum-c1","t":"일*","c":"공통수학1","l":"고등","g":"","v":"2022개정","p":"좋은책신사고","s":"making"},{"id":"jaistory-c1","t":"자*스토리","c":"공통수학1","l":"고등","g":"","v":"2022개정","p":"수경출판사","s":"making"},{"id":"jeoldae-c1","t":"절*등급","c":"공통수학1","l":"고등","g":"","v":"2022개정","p":"동아출판","s":"making"},{"id":"pungsanja-c1","t":"풍*자 필수유형","c":"공통수학1","l":"고등","g":"","v":"2022개정","p":"지학사","s":"making"},{"id":"rpm-c2","t":"R*M","c":"공통수학2","l":"고등","g":"고1 공통","v":"2022개정","p":"개념원리","s":"released"},{"id":"ssen-c2","t":"ㅆ","c":"공통수학2","l":"고등","g":"고1 공통","v":"2022개정","p":"좋은책신사고","s":"released"},{"id":"lightssen-c2","t":"라이트ㅆ","c":"공통수학2","l":"고등","g":"","v":"2022개정","p":"좋은책신사고","s":"making"},{"id":"mapletxt-c2","t":"마*교과서","c":"공통수학2","l":"고등","g":"","v":"2022개정","p":"희망에듀","s":"making"},{"id":"maplesyn-c2","t":"마*시너지","c":"공통수학2","l":"고등","g":"","v":"2022개정","p":"희망에듀","s":"making"},{"id":"black-c2","t":"블*라벨","c":"공통수학2","l":"고등","g":"고1 공통","v":"2022개정","p":"진학사","s":"released"},{"id":"bible-c2","t":"수학의 바*블 유형ON","c":"공통수학2","l":"고등","g":"","v":"2022개정","p":"이투스북","s":"making"},{"id":"biblelight-c2","t":"수학의 바*블 유형ON 라이트","c":"공통수학2","l":"고등","g":"","v":"2022개정","p":"이투스북","s":"making"},{"id":"gojaengi-c2","t":"유형+내신 고*이","c":"공통수학2","l":"고등","g":"고1 공통","v":"2022개정","p":"이투스","s":"released"},{"id":"manlep-c2","t":"유형만*","c":"공통수학2","l":"고등","g":"","v":"2022개정","p":"비상교육","s":"making"},{"id":"ilpum-c2","t":"일*","c":"공통수학2","l":"고등","g":"","v":"2022개정","p":"좋은책신사고","s":"making"},{"id":"jaistory-c2","t":"자*스토리","c":"공통수학2","l":"고등","g":"","v":"2022개정","p":"수경출판사","s":"making"},{"id":"jeoldae-c2","t":"절*등급","c":"공통수학2","l":"고등","g":"","v":"2022개정","p":"동아출판","s":"making"},{"id":"pungsanja-c2","t":"풍*자 필수유형","c":"공통수학2","l":"고등","g":"","v":"2022개정","p":"지학사","s":"making"},{"id":"rpm-alg","t":"R*M","c":"대수","l":"고등","g":"고2 공통","v":"2022개정","p":"개념원리","s":"released"},{"id":"ssen-alg","t":"ㅆ","c":"대수","l":"고등","g":"고2 공통","v":"2022개정","p":"좋은책신사고","s":"released"},{"id":"lightssen-alg","t":"라이트ㅆ","c":"대수","l":"고등","g":"","v":"2022개정","p":"좋은책신사고","s":"making"},{"id":"mapletxt-alg","t":"마*교과서","c":"대수","l":"고등","g":"","v":"2022개정","p":"희망에듀","s":"making"},{"id":"maplesyn-alg","t":"마*시너지","c":"대수","l":"고등","g":"","v":"2022개정","p":"희망에듀","s":"making"},{"id":"black-alg","t":"블*라벨","c":"대수","l":"고등","g":"고2 공통","v":"2022개정","p":"지학사","s":"released"},{"id":"bible-alg","t":"수학의 바*블 유형ON","c":"대수","l":"고등","g":"","v":"2022개정","p":"이투스북","s":"making"},{"id":"biblelight-alg","t":"수학의 바*블 유형ON 라이트","c":"대수","l":"고등","g":"","v":"2022개정","p":"이투스북","s":"making"},{"id":"gojaengi-alg","t":"유형+내신 고*이","c":"대수","l":"고등","g":"고2 공통","v":"2022개정","p":"이투스","s":"released"},{"id":"manlep-alg","t":"유형만*","c":"대수","l":"고등","g":"","v":"2022개정","p":"비상교육","s":"making"},{"id":"ilpum-alg","t":"일*","c":"대수","l":"고등","g":"","v":"2022개정","p":"좋은책신사고","s":"making"},{"id":"jaistory-alg","t":"자*스토리","c":"대수","l":"고등","g":"","v":"2022개정","p":"수경출판사","s":"making"},{"id":"jeoldae-alg","t":"절*등급","c":"대수","l":"고등","g":"","v":"2022개정","p":"동아출판","s":"making"},{"id":"pungsanja-alg","t":"풍*자 필수유형","c":"대수","l":"고등","g":"","v":"2022개정","p":"지학사","s":"making"},{"id":"rpm-cal1","t":"R*M","c":"미적분1","l":"고등","g":"고2 공통","v":"2022개정","p":"개념원리","s":"released"},{"id":"ssen-cal1","t":"ㅆ","c":"미적분1","l":"고등","g":"고2 공통","v":"2022개정","p":"좋은책신사고","s":"released"},{"id":"lightssen-cal1","t":"라이트ㅆ","c":"미적분1","l":"고등","g":"","v":"2022개정","p":"좋은책신사고","s":"making"},{"id":"mapletxt-cal1","t":"마*교과서","c":"미적분1","l":"고등","g":"","v":"2022개정","p":"희망에듀","s":"making"},{"id":"maplesyn-cal1","t":"마*시너지","c":"미적분1","l":"고등","g":"","v":"2022개정","p":"희망에듀","s":"making"},{"id":"black-cal1","t":"블*라벨","c":"미적분1","l":"고등","g":"고2 공통","v":"2015개정","p":"진학사","s":"released"},{"id":"bible-cal1","t":"수학의 바*블 유형ON","c":"미적분1","l":"고등","g":"","v":"2022개정","p":"이투스북","s":"making"},{"id":"biblelight-cal1","t":"수학의 바*블 유형ON 라이트","c":"미적분1","l":"고등","g":"","v":"2022개정","p":"이투스북","s":"making"},{"id":"gojaengi-cal1","t":"유형+내신 고*이","c":"미적분1","l":"고등","g":"고2 공통","v":"2022개정","p":"이투스","s":"released"},{"id":"manlep-cal1","t":"유형만*","c":"미적분1","l":"고등","g":"","v":"2022개정","p":"비상교육","s":"making"},{"id":"ilpum-cal1","t":"일*","c":"미적분1","l":"고등","g":"","v":"2022개정","p":"좋은책신사고","s":"making"},{"id":"jaistory-cal1","t":"자*스토리","c":"미적분1","l":"고등","g":"","v":"2022개정","p":"수경출판사","s":"making"},{"id":"jeoldae-cal1","t":"절*등급","c":"미적분1","l":"고등","g":"","v":"2022개정","p":"동아출판","s":"making"},{"id":"pungsanja-cal1","t":"풍*자 필수유형","c":"미적분1","l":"고등","g":"","v":"2022개정","p":"지학사","s":"making"},{"id":"rpm-stat","t":"R*M","c":"확률과 통계","l":"고등","g":"고2 공통","v":"2022개정","p":"개념원리","s":"released"},{"id":"ssen-stat","t":"ㅆ","c":"확률과 통계","l":"고등","g":"고2 공통","v":"2022개정","p":"좋은책신사고","s":"released"},{"id":"lightssen-stat","t":"라이트ㅆ","c":"확률과 통계","l":"고등","g":"","v":"2022개정","p":"좋은책신사고","s":"making"},{"id":"mapletxt-stat","t":"마*교과서","c":"확률과 통계","l":"고등","g":"","v":"2022개정","p":"희망에듀","s":"making"},{"id":"maplesyn-stat","t":"마*시너지","c":"확률과 통계","l":"고등","g":"","v":"2022개정","p":"희망에듀","s":"making"},{"id":"black-stat","t":"블*라벨","c":"확률과 통계","l":"고등","g":"고2 공통","v":"2022개정","p":"진학사","s":"released"},{"id":"bible-stat","t":"수학의 바*블 유형ON","c":"확률과 통계","l":"고등","g":"","v":"2022개정","p":"이투스북","s":"making"},{"id":"gojaengi-stat","t":"유형+내신 고*이","c":"확률과 통계","l":"고등","g":"고2 공통","v":"2015개정","p":"이투스","s":"released"},{"id":"manlep-stat","t":"유형만*","c":"확률과 통계","l":"고등","g":"","v":"2022개정","p":"비상교육","s":"making"},{"id":"jaistory-stat","t":"자*스토리","c":"확률과 통계","l":"고등","g":"","v":"2022개정","p":"수경출판사","s":"making"},{"id":"jeoldae-stat","t":"절*등급","c":"확률과 통계","l":"고등","g":"","v":"2022개정","p":"동아출판","s":"making"},{"id":"pungsanja-stat","t":"풍*자 필수유형","c":"확률과 통계","l":"고등","g":"","v":"2022개정","p":"지학사","s":"making"},{"id":"ssen-cal2","t":"ㅆ","c":"미적분2","l":"고등","g":"","v":"2022개정","p":"좋은책신사고","s":"making"},{"id":"jeoldae-cal2","t":"절*등급","c":"미적분2","l":"고등","g":"","v":"2022개정","p":"동아출판","s":"making"},{"id":"grade1-geo","t":"1등급 만*기","c":"기하","l":"고등","g":"","v":"2022개정","p":"미래엔","s":"making"},{"id":"rpm-geo","t":"R*M","c":"기하","l":"고등","g":"","v":"2022개정","p":"개념원리","s":"making"},{"id":"ssen-geo","t":"ㅆ","c":"기하","l":"고등","g":"","v":"2022개정","p":"좋은책신사고","s":"making"},{"id":"gaeyu-geo","t":"개*+유형","c":"기하","l":"고등","g":"","v":"2022개정","p":"비상교육","s":"making"},{"id":"gwonri-geo","t":"개*원리","c":"기하","l":"고등","g":"","v":"2022개정","p":"개념원리","s":"making"},{"id":"sumae-geo","t":"수*씽 개념","c":"기하","l":"고등","g":"","v":"2022개정","p":"동아출판","s":"making"}];
+/* subjects and their order follow 수학비서 문제은행's 신 교육과정 unit tree */
+const COURSES = {"중등":["중1-1","중1-2","중2-1","중2-2","중3-1","중3-2"],"고등":["공통수학1","공통수학2","대수","미적분1","확률과 통계","미적분2","기하"]};
+const ORDER = [...COURSES["중등"],...COURSES["고등"]];
+const PUBS = ["개념원리","좋은책신사고","이투스북","디딤돌","천재교육","비상교육","지학사","수경출판사","진학사","미래엔","동아출판","NE능률","희망에듀","에이급출판사","EBS"];
+const STAGES = [{n:"씨앗",at:0},{n:"새싹",at:10},{n:"묘목",at:30},{n:"나무",at:60},{n:"큰 나무",at:100}];
+const HEART = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.6-4.6-9.4-9.3C1.3 7.9 3.5 4.8 6.8 4.8c2.1 0 3.6 1.1 4.4 2.6h1.6c.8-1.5 2.3-2.6 4.4-2.6 3.3 0 5.5 3.1 4.2 6.4-1.8 4.7-9.4 9.3-9.4 9.3z"/></svg>';
+const QB = "https://www.mathsecr.com/question-bank";
+
+const S = {tab:"grow", lvl:"all", course:"", pub:"", q:"", counts:new Map(), mine:new Set(), reqs:[], version:null, loaded:false, confirmDel:null, recent:new Map(), prevStage:new Map(), prevRank:new Map(), moves:new Map()};
+/* deployment settings live in window.TF_CONFIG (top of the page). No Supabase keys = demo mode. */
+const CONFIG = Object.assign({supabaseUrl: "", supabaseKey: "", pollMs: 6000, hiddenPollMs: 60000}, window.TF_CONFIG || {});
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const norm = s => String(s).replace(/\s+/g,"").toLowerCase();
+/* Textbook names are shown partly masked ("고*이"). "*" in a masked name matches any one character. */
+function maskName(s){
+  const w = String(s).trim().split(/\s+/); const f = w[0] || "";
+  if (f.length >= 3) w[0] = f[0] + "*" + f.slice(2);
+  else if (f.length === 2) w[0] = f[0] + "*";
+  else if (/^[가-힣]$/.test(f)) w[0] = "ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎ"[Math.floor((f.charCodeAt(0) - 0xAC00) / 588)];
+  else w[0] = "*";
+  return w.join(" ");
+}
+const chosung = c => /^[가-힣]$/.test(c) ? "ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎ"[Math.floor((c.charCodeAt(0) - 0xAC00) / 588)] : c;
+const chMatch = (m, c) => m === "*" || m === c || (/[ㄱ-ㅎ]/.test(m) && chosung(c) === m);
+function wildIncludes(hay, q){
+  for (let i = 0; i + q.length <= hay.length; i++){ let ok = true; for (let j = 0; j < q.length; j++) if (!chMatch(hay[i+j], q[j])) { ok = false; break; } if (ok) return true; }
+  return false;
+}
+const wildEq = (masked, raw) => masked.length === raw.length && wildIncludes(masked, raw);
+const stageOf = h => { let st = 0; STAGES.forEach((x, i) => { if (h >= x.at) st = i; }); return st; };
+
+/* ---------- trees ---------- */
+function treeParts(stage, fruit){
+  let g = '<ellipse class="soil" cx="40" cy="74" rx="24" ry="5"/>';
+  if (stage === 0) return g + '<ellipse class="seed" cx="40" cy="70" rx="5.5" ry="4"/><path class="stem" d="M40 66 q1 -4 4 -5"/>';
+  if (stage === 1) return g + '<path class="stem" d="M40 73 V57"/><ellipse class="c1" cx="33.5" cy="56" rx="7.5" ry="4.2" transform="rotate(-28 33.5 56)"/><ellipse class="c3" cx="46.5" cy="53" rx="7.5" ry="4.2" transform="rotate(28 46.5 53)"/>';
+  if (stage === 2) return g + '<rect class="trunk" x="38.5" y="50" width="3" height="24" rx="1.5"/><circle class="c2" cx="31" cy="48" r="8"/><circle class="c2" cx="49" cy="48" r="8"/><circle class="c1" cx="40" cy="41" r="12"/><circle class="c3" cx="36" cy="37" r="4"/>';
+  if (stage === 3) return g + '<rect class="trunk" x="37" y="46" width="6" height="28" rx="3"/><circle class="c2" cx="26" cy="42" r="11"/><circle class="c2" cx="54" cy="42" r="11"/><circle class="c1" cx="33" cy="28" r="11"/><circle class="c1" cx="48" cy="27" r="11"/><circle class="c1" cx="40" cy="38" r="14"/><circle class="c3" cx="34" cy="31" r="4.5"/>';
+  let b = g + '<rect class="trunk" x="35.5" y="44" width="9" height="30" rx="4"/><circle class="c2" cx="21" cy="40" r="13"/><circle class="c2" cx="59" cy="40" r="13"/><circle class="c2" cx="40" cy="47" r="12"/><circle class="c1" cx="28" cy="23" r="13"/><circle class="c1" cx="52" cy="22" r="13"/><circle class="c1" cx="40" cy="33" r="16"/><circle class="c1" cx="40" cy="13" r="11"/><circle class="c3" cx="32" cy="24" r="5"/>';
+  if (fruit) b += [[25,38],[54,30],[44,15],[34,44],[60,44],[22,24],[47,40]].map(([x,y]) => `<circle class="fruit" cx="${x}" cy="${y}" r="3.4"/>`).join("");
+  return b;
+}
+const treeSvg = (stage, fruit, label) => `<svg viewBox="0 0 80 80" role="img" aria-label="${esc(label)}">${treeParts(stage, fruit)}</svg>`;
+
+/* ---------- data ---------- */
+function allGrowing(){
+  return CATALOG.filter(b => b.s === "making").concat(S.reqs).map(b => ({...b, h: heartsOf(b.id)}));
+}
+function heartsOf(id){ return S.counts.get(id) || 0; }
+function mineHas(id){ return S.mine.has(id); }
+function matches(b){
+  if (S.lvl !== "all" && b.l !== S.lvl) return false;
+  if (S.pub && b.p !== S.pub) return false;
+  if (S.course && b.c !== S.course) return false;
+  if (S.q){ const q = norm(S.q); if (!wildIncludes(norm(b.t + b.c + b.p), q)) return false; }
+  return true;
+}
+function ranked(){
+  return allGrowing().sort((a,b) => b.h - a.h || (a.s === "making" ? -1 : 1) - (b.s === "making" ? -1 : 1) || a.t.localeCompare(b.t,"ko") || ORDER.indexOf(a.c) - ORDER.indexOf(b.c));
+}
+
+/* ---------- render ---------- */
+function renderStats(){
+  const rel = CATALOG.filter(b => b.s === "released");
+  const grow = allGrowing();
+  const hearts = grow.reduce((s,b) => s + b.h, 0);
+  const subjects = new Set(rel.map(b => b.c)).size;
+  $("#stats").innerHTML =
+    `<div class="stat"><b>${rel.length}</b>권 열매</div>` +
+    `<div class="stat"><b>${grow.length}</b>권 자라는 중</div>` +
+    `<div class="stat h"><b>${hearts.toLocaleString("ko-KR")}</b>개 하트</div>` +
+    `<div class="stat"><b>${subjects}</b>개 과목</div>`;
+  $("#cnt-grow").textContent = grow.length;
+  $("#cnt-done").textContent = rel.length;
+}
+
+function renderForest(){
+  const top = ranked().slice(0, 9);
+  const rel = CATALOG.filter(b => b.s === "released");
+  let s = '';
+  // mountains are smooth bumps; trees on them use the same surface function so they sit on the slopes
+  const MTN = [{c: 560, w: 95, h: 100, cls: "mtn-2"}, {c: 250, w: 125, h: 150, cls: "mtn"}, {c: 830, w: 170, h: 205, cls: "mtn"}];
+  const surf = (m, x) => 175 - m.h * Math.exp(-(((x - m.c) / m.w) ** 2));
+  MTN.forEach(m => {
+    let d = "", r = "";
+    for (let x = m.c - 2.6 * m.w; x <= m.c + 2.6 * m.w; x += 8){ d += `${d ? " L" : "M"}${x.toFixed(0)} ${surf(m, x).toFixed(1)}`; }
+    for (let x = m.c - .55 * m.w; x <= m.c + .55 * m.w; x += 6){ r += `${r ? " L" : "M"}${x.toFixed(0)} ${(surf(m, x) + 5).toFixed(1)}`; }
+    s += `<path class="${m.cls}" d="${d} L${(m.c + 2.6 * m.w).toFixed(0)} 180 L${(m.c - 2.6 * m.w).toFixed(0)} 180 Z"/><path class="ridge" d="${r}"/>`;
+  });
+  // one fruit tree per released book, scattered over the mountains and hills; hover/tap grows it and shows its name
+  let seed = 11; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const orchard = rel.map((b, i) => ({b, k: (i * 37) % rel.length})).sort((a, c) => a.k - c.k).map(o => o.b);
+  const nM = Math.round(orchard.length * 0.4), spots = [];
+  const near = (x, y, d) => spots.some(p => Math.abs(p.x - x) < d && Math.abs(p.y - y) < d * .55);
+  orchard.forEach((b, i) => {
+    let x, y, sc, mtn = i < nM, tries = 0;
+    do {
+      if (mtn){ const m = MTN[[2, 1, 2, 0, 1, 2][i % 6]]; x = m.c + (rnd() * 2 - 1) * 1.25 * m.w; y = surf(m, x) + 7 + rnd() * 14; sc = .3 + rnd() * .08; }
+      else { x = 14 + rnd() * 972; y = 134 + rnd() * 46; sc = .46 + (y - 134) / 46 * .16 + rnd() * .04; }
+    } while (near(x, y, mtn ? 22 : 34) && ++tries < 25);
+    spots.push({b, i, x, y, sc, mtn});
+  });
+  const tree = p => `<g class="rt" tabindex="0" role="button" data-i="${CATALOG.indexOf(p.b)}" aria-label="${esc(p.b.t + " " + p.b.c)} 열매 맺음">` +
+    `<g transform="translate(${(p.x - 40*p.sc).toFixed(1)} ${(p.y - 74*p.sc).toFixed(1)}) scale(${p.sc.toFixed(2)})"><g class="rt-in"><g class="sway" style="animation-delay:-${((p.i * 0.37) % 3.6).toFixed(2)}s">${treeParts(4, true)}</g></g></g></g>`;
+  spots.filter(p => p.mtn).sort((a, c) => a.y - c.y).forEach(p => s += tree(p));
+  s += '<path class="hill-2" d="M0 170 C160 120 300 150 450 132 C620 112 780 150 1000 120 V250 H0Z"/>';
+  spots.filter(p => !p.mtn).sort((a, c) => a.y - c.y).forEach(p => s += tree(p));
+  s += '<path class="hill-3" d="M0 196 C150 176 300 190 470 182 C650 172 830 196 1000 176 V250 H0Z"/>';
+  s += '<path class="hill" d="M0 210 C180 186 330 204 500 196 C680 188 820 208 1000 192 V250 H0Z"/>';
+  // little flowers scattered on the front hill
+  for (let i = 0; i < 26; i++){
+    const x = 18 + i * 37.5 + ((i * 53) % 19), y = 222 + ((i * 29) % 22), cls = ["fl1","fl2","fl3"][i % 3];
+    s += `<g class="${cls}"><circle cx="${x-3}" cy="${y}" r="2.6"/><circle cx="${x+3}" cy="${y}" r="2.6"/><circle cx="${x}" cy="${y-3}" r="2.6"/><circle cx="${x}" cy="${y+3}" r="2.6"/></g><circle class="fl2" cx="${x}" cy="${y}" r="1.6"/>`;
+  }
+  if (!top.length) s += `<rect class="lbl-bg" x="355" y="200" width="290" height="36" rx="18"/><text class="hint" x="500" y="225" text-anchor="middle">첫 씨앗을 기다리고 있어요</text>`;
+  // foreground: top growing trees, biggest in the middle
+  const slots = [500, 320, 680, 190, 810, 95, 905, 40, 960];
+  const TOPY = [63, 48, 29, 13, 0]; // highest drawn point of each stage, in tree units (ground at 74)
+  top.forEach((b, i) => {
+    const st = stageOf(b.h), sc = [0.9, 1.05, 1.25, 1.5, 1.8][st] * (i === 0 ? 1.12 : 1);
+    const x = slots[i], y = 214 + (i % 2) * 6;
+    s += `<g class="ft" tabindex="0" role="link" data-id="${esc(b.id)}" aria-label="${esc(b.t + " " + b.c)} 하트 ${b.h}개">` +
+      `<g transform="translate(${(x - 40*sc).toFixed(1)} ${(y - 74*sc).toFixed(1)}) scale(${sc.toFixed(2)})"><g class="sway${st < 2 ? " small" : ""}" style="animation-delay:-${(i * 0.5).toFixed(1)}s">${treeParts(st, false)}</g></g>`;
+    if (i < 3) s += `<rect class="lbl-bg" x="${x - 78}" y="${y + 5}" width="156" height="26" rx="13"/><text class="lbl" x="${x}" y="${y + 24}" text-anchor="middle">${i+1}위 ${esc(b.t.length > 9 ? b.t.slice(0,9) + "…" : b.t)} ${esc(b.c)}</text>`;
+    if (i < 3 || b.h > 0) s += `<text class="lbl-n" data-id="${esc(b.id)}" x="${x}" y="${(y - (74 - TOPY[st]) * sc - 7).toFixed(1)}" text-anchor="middle">♥ ${b.h}</text>`;
+    s += `</g>`;
+  });
+  $("#forest").innerHTML = s;
+  // a tree in the forest got a heart (mine or someone else's): its count pops and hearts burst from it
+  const prev = S.forestHearts;
+  S.forestHearts = new Map(allGrowing().map(b => [b.id, b.h]));
+  if (!prev || !S.forestArmed) return;
+  top.forEach(b => {
+    if (b.h <= (prev.get(b.id) || 0)) return;
+    const n = document.querySelector(`#forest .lbl-n[data-id="${CSS.escape(b.id)}"]`);
+    const t = document.querySelector(`#forest .ft[data-id="${CSS.escape(b.id)}"]`);
+    if (n) n.classList.add("bump");
+    if (t){ const r = t.getBoundingClientRect(); if (r.width) burst(r.left + r.width / 2, r.top + r.height * .35, 10); }
+  });
+}
+
+function nextText(h){
+  const st = stageOf(h);
+  if (st === 4) return `<b>${STAGES[4].n}</b> · 출시 후보예요`;
+  return `<b>${STAGES[st].n}</b> · ${STAGES[st+1].n}까지 하트 ${STAGES[st+1].at - h}개`;
+}
+
+/* live ranking: remember each card's position and rank, then slide cards to their new place */
+const reduce = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
+function renderList(){
+  const before = new Map();
+  document.querySelectorAll("#list .g-card").forEach(el => before.set(el.id, el.getBoundingClientRect().top));
+  const ranks = new Map(ranked().map((b, i) => [b.id, i + 1]));
+  ranks.forEach((r, id) => {
+    const p = S.prevRank.get(id);
+    if (p !== undefined && p !== r) S.moves.set(id, {d: p - r, until: Date.now() + 5000});
+  });
+  S.prevRank = ranks;
+  renderListInner();
+  if (reduce() || !before.size) return;
+  document.querySelectorAll("#list .g-card").forEach(el => {
+    const top = before.get(el.id); if (top === undefined) return;
+    const dy = top - el.getBoundingClientRect().top; if (Math.abs(dy) < 2) return;
+    el.style.transition = "none"; el.style.transform = `translateY(${dy}px)`;
+    requestAnimationFrame(() => requestAnimationFrame(() => { el.style.transition = "transform .55s cubic-bezier(.2,.8,.2,1)"; el.style.transform = ""; }));
+  });
+}
+setInterval(() => { // clear expired movement badges
+  const now = Date.now(); let gone = false;
+  S.moves.forEach((m, id) => { if (m.until < now){ S.moves.delete(id); gone = true; } });
+  if (gone) document.querySelectorAll(".mv").forEach(el => { const m = S.moves.get(el.dataset.id); if (!m) el.remove(); });
+}, 1000);
+function moveBadge(id){
+  const m = S.moves.get(id); if (!m || m.until < Date.now()) return "";
+  return m.d > 0 ? `<span class="mv up" data-id="${esc(id)}">▲${m.d}</span>` : `<span class="mv down" data-id="${esc(id)}">▼${-m.d}</span>`;
+}
+function renderListInner(){
+  const box = $("#list");
+  if (S.tab === "done"){
+    const rel = CATALOG.filter(b => b.s === "released" && matches(b))
+      .sort((a,b) => ORDER.indexOf(a.c) - ORDER.indexOf(b.c) || a.t.localeCompare(b.t,"ko"));
+    box.innerHTML = rel.length ? `<div class="r-grid">${rel.map(b => `
+      <div class="r-card">${treeSvg(4, true, "열매 나무")}
+        <div class="g-title">${esc(b.t)}<span class="course">${esc(b.c)}</span></div>
+        <div class="g-meta">${esc(b.p)} · ${b.l}</div>
+        <div class="num">${esc(b.g || "")} · ${esc(b.v || "")}</div>
+      </div>`).join("")}</div><div class="more"><a href="${QB}" target="_blank" rel="noopener">문제은행에서 바로 쓰기 →</a></div>`
+      : `<div class="empty">조건에 맞는 출시 교재가 없어요.</div>`;
+    return;
+  }
+  const all = ranked();
+  const rows = all.map((b, i) => ({b, rank: i + 1})).filter(r => matches(r.b));
+  if (!all.length){ box.innerHTML = `<div class="empty"><b>아직 빈 땅이에요</b>제작 중인 교재가 곧 심어져요.<br>먼저 원하는 교재가 있다면 씨앗을 심어 주세요.</div>`; return; }
+  if (!rows.length){ box.innerHTML = `<div class="empty"><b>여기엔 아직 나무가 없어요</b>조건에 맞는 교재가 없어요. 씨앗을 심어 보세요.</div>`; return; }
+  box.innerHTML = `<div class="list">${rows.map(({b, rank}) => {
+    const st = stageOf(b.h), on = mineHas(b.id);
+    const tag = b.s === "making" ? '<span class="pill making">제작 중</span>' : '<span class="pill request">요청</span>';
+    const mine = b.mine ? '<span class="pill mine">내 요청</span>' : "";
+    return `<article class="g-card" id="b-${esc(b.id)}">
+      <div class="rank${rank <= 3 && b.h > 0 ? " top" : ""}">${rank}${moveBadge(b.id)}</div>
+      <div class="g-tree" data-st="${st}">${treeSvg(st, false, STAGES[st].n)}</div>
+      <div><div class="g-title">${esc(b.t)}<span class="course">${esc(b.c)}</span></div>
+        <div class="g-meta">${tag}${mine}<span>${esc(b.p)} · ${b.l}</span></div>
+        <div class="g-next">${nextText(b.h)}</div></div>
+      <button class="heart-btn" data-id="${esc(b.id)}" aria-pressed="${on}" aria-label="${esc(b.t + " " + b.c)}에 하트 ${on ? "취소" : "보내기"}">${HEART}<span>${b.h}</span></button>
+    </article>`;}).join("")}</div>`;
+  // growth animation for stages that went up since last render
+  box.querySelectorAll(".g-tree").forEach(el => {
+    const id = el.nextElementSibling && el.parentElement.id.slice(2), st = +el.dataset.st, prev = S.prevStage.get(id);
+    if (prev !== undefined && st > prev) el.classList.add("grow");
+    S.prevStage.set(id, st);
+  });
+}
+
+function renderMyReqs(){
+  const el = $("#myreqs"), mine = S.myReqList || [];
+  el.hidden = !mine.length;
+  const chip = st => st === "pending" ? '<span class="chip pending">검토 중</span>' : st === "approved" ? '<span class="chip approved">숲에 심어짐</span>' : '<span class="chip rejected">반려</span>';
+  el.innerHTML = mine.length ? `<div class="myreqs-h">내가 심은 씨앗 <span>${mine.filter(r => r.status !== "rejected").length}/20</span></div>` + mine.map(r => {
+    const h = heartsOf(r.id), ask = S.confirmDel === r.id;
+    return `<div class="myreq"><div class="myreq-row"><div><b>${esc(r.title)}</b> ${esc(r.course)}${r.status === "approved" ? ` · ♥ ${h}` : ""}${chip(r.status)}</div>` +
+      (ask ? "" : `<button class="mini" data-ask="${esc(r.id)}" aria-label="${esc(r.title + " " + r.course)} 요청 삭제">삭제</button>`) + `</div>` +
+      (r.status === "rejected" && r.note ? `<div class="mr-note">반려 사유: ${esc(r.note)}</div>` : "") +
+      (ask ? `<div class="mr-ask">${h > 0 && r.status === "approved" ? `받은 하트 ${h}개도 함께 사라져요. ` : ""}정말 뽑을까요? <button class="mini danger" data-del="${esc(r.id)}">삭제</button><button class="mini" data-cancel="1">취소</button></div>` : "") +
+      `</div>`;
+  }).join("") : "";
+}
+
+function render(){ renderStats(); renderForest(); renderList(); renderMyReqs(); }
+
+function setStatus(kind, text){
+  const el = $("#status"); el.className = "status " + kind; el.querySelector("span").textContent = text;
+}
+
+/* ---------- interactions ---------- */
+function burst(x, y, count = 16){
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const host = $("#burst"), cols = ["var(--heart)","var(--fruit)","var(--sun)","var(--leaf)"];
+  for (let i = 0; i < count; i++){
+    const a = (Math.PI * 2 * i) / count + Math.random() * .4, d = 60 + Math.random() * 70;
+    const h = document.createElement("div");
+    h.innerHTML = HEART;
+    const svg = h.firstChild;
+    svg.style.cssText = `--x:${Math.cos(a)*d}px;--y:${Math.sin(a)*d - 30}px;--r:${(Math.random()*80-40).toFixed(0)}deg;--s:${10 + Math.random()*12}px;--d:${700 + Math.random()*400}ms;--c:${i % 3 ? cols[0] : cols[(i/3|0) % 4]};transform:translate(0,0)`;
+    svg.style.left = (x - 8) + "px"; svg.style.top = (y - 8) + "px";
+    host.appendChild(svg);
+    setTimeout(() => svg.remove(), 1200);
+  }
+}
+let toastT;
+function toast(msg){ const t = $("#toast"); t.textContent = msg; t.classList.add("on"); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove("on"), 2400); }
+
+/* errors from the API: put the screen back and say what happened */
+function apiError(e){
+  const st = e && e.status;
+  if (st === 401) toast("로그인하면 하트를 보낼 수 있어요.");
+  else if (st === 429) toast("하트가 너무 빨라요! 잠시 후 다시 눌러 주세요.");
+  else if (st === 409 && e.code === "REQUEST_LIMIT") toast("씨앗은 한 사람당 20개까지 심을 수 있어요.");
+  else if (st === 422) toast(e.message || "심을 수 없는 교재예요.");
+  else if (st === 403) toast("내가 심은 씨앗만 뽑을 수 있어요.");
+  else toast("저장하지 못했어요. 잠시 후 다시 시도해 주세요.");
+}
+async function withRetry(fn){
+  try { return await fn(); }
+  catch (e){
+    if (e && e.status && e.status < 500 && e.status !== 429) throw e;   // a real "no": don't retry
+    await new Promise(r => setTimeout(r, 500 + Math.random() * 1000));
+    return fn();
+  }
+}
+
+/* hearts: the screen changes at once; taps within 0.4 s are sent as one, one request at a time */
+const pendingVotes = new Map(); let voteT = null, voting = Promise.resolve();
+function vote(id, btn){
+  const on = !S.mine.has(id), before = stageOf(heartsOf(id));
+  on ? S.mine.add(id) : S.mine.delete(id);
+  S.counts.set(id, Math.max(0, heartsOf(id) + (on ? 1 : -1)));
+  S.recent.set(id, Date.now());
+  if (on){ const r = btn.getBoundingClientRect(); burst(r.left + r.width/2, r.top + r.height/2 - 6); }
+  const after = stageOf(heartsOf(id));
+  render();
+  const nb = document.querySelector(`.heart-btn[data-id="${CSS.escape(id)}"]`);
+  if (nb && on){ nb.classList.add("pop"); nb.focus({preventScroll:true}); }
+  if (after > before) toast(`쑥! ${STAGES[after].n}(으)로 자랐어요`);
+  pendingVotes.set(id, on); clearTimeout(voteT); voteT = setTimeout(sendVotes, 400);
+}
+function sendVotes(){
+  voteT = null;
+  const batch = [...pendingVotes]; pendingVotes.clear();
+  voting = voting.then(async () => {
+    for (const [id, on] of batch){
+      try {
+        const r = await withRetry(() => api.vote(id, on));
+        if (r && typeof r.count === "number" && !pendingVotes.has(id)) S.counts.set(id, r.count);
+      } catch (e){
+        if (!pendingVotes.has(id)){ on ? S.mine.delete(id) : S.mine.add(id); S.counts.set(id, Math.max(0, heartsOf(id) + (on ? -1 : 1))); }
+        apiError(e);
+      }
+    }
+    scheduleRender();
+  });
+}
+
+/* other people's hearts: re-render at most once per frame, one combined toast */
+let rq = 0;
+function scheduleRender(){ if (rq) return; rq = requestAnimationFrame(() => { rq = 0; render(); }); }
+let remoteN = 0, remoteName = "", remoteT = null;
+function remoteHeart(b){
+  if (!b && !remoteName) return;
+  remoteN++; if (b) remoteName = b.t + " " + b.c;
+  if (remoteT) return;
+  remoteT = setTimeout(() => { toast(remoteN > 1 ? `♥ 방금 하트 ${remoteN}개가 도착했어요` : `♥ 방금 ${remoteName}에 하트가 도착했어요`); remoteN = 0; remoteT = null; }, 700);
+}
+
+/* released-tree name bubbles */
+let bubbleT, bubbleFor = null;
+function showBubble(g, ms){
+  const b = CATALOG[+g.dataset.i]; if (!b) return;
+  const bub = $("#bubble"), wrap = bub.parentElement.getBoundingClientRect(), r = g.getBoundingClientRect();
+  bub.innerHTML = `<small>열매 맺은 교재</small>${esc(b.t)}<span class="c">${esc(b.c)}</span>`;
+  const half = Math.min(bub.offsetWidth / 2 + 4, wrap.width / 2);
+  bub.style.left = Math.min(Math.max(r.left + r.width / 2 - wrap.left, half), wrap.width - half) + "px";
+  bub.style.top = (r.top - wrap.top - 12) + "px";
+  document.querySelectorAll(".rt.on").forEach(x => x.classList.remove("on"));
+  g.classList.add("on"); bubbleFor = g.dataset.i;
+  bub.classList.remove("on"); void bub.offsetWidth; bub.classList.add("on");
+  clearTimeout(bubbleT); if (ms) bubbleT = setTimeout(hideBubble, ms);
+}
+function hideBubble(){
+  $("#bubble").classList.remove("on"); bubbleFor = null;
+  document.querySelectorAll(".rt.on").forEach(x => x.classList.remove("on"));
+}
+$("#forest").addEventListener("pointerover", e => { const g = e.target.closest(".rt"); if (g && e.pointerType === "mouse" && bubbleFor !== g.dataset.i) showBubble(g, 0); });
+$("#forest").addEventListener("pointerout", e => { const g = e.target.closest(".rt"); if (g && e.pointerType === "mouse" && !g.contains(e.relatedTarget)){ clearTimeout(bubbleT); bubbleT = setTimeout(hideBubble, 700); } });
+$("#forest").addEventListener("focusin", e => { const g = e.target.closest(".rt"); if (g) showBubble(g, 0); });
+$("#forest").addEventListener("focusout", () => { clearTimeout(bubbleT); bubbleT = setTimeout(hideBubble, 400); });
+
+/* tap the moon/sun on touch screens: it smiles for a moment */
+let orbT;
+document.querySelector(".orb").addEventListener("click", e => {
+  const o = e.currentTarget; o.classList.add("smile"); clearTimeout(orbT); orbT = setTimeout(() => o.classList.remove("smile"), 1600);
+});
+
+document.addEventListener("click", e => {
+  const rt = e.target.closest(".rt"); if (rt) return showBubble(rt, 2200);
+  const hb = e.target.closest(".heart-btn"); if (hb) return vote(hb.dataset.id, hb);
+  const ft = e.target.closest(".ft"); if (ft) return jumpTo(ft.dataset.id);
+});
+document.addEventListener("keydown", e => { const ft = e.target.closest && e.target.closest(".ft"); if (ft && (e.key === "Enter" || e.key === " ")){ e.preventDefault(); jumpTo(ft.dataset.id); } });
+function jumpTo(id){
+  if (S.tab !== "grow") setTab("grow");
+  S.lvl = "all"; S.pub = ""; S.q = ""; S.course = ""; fillCourseFilter(); syncFilters(); renderList();
+  const el = document.getElementById("b-" + id); if (!el) return;
+  el.scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block:"center"});
+  el.classList.remove("flash"); void el.offsetWidth; el.classList.add("flash");
+}
+
+function setTab(t){ S.tab = t; $("#tab-grow").setAttribute("aria-selected", t === "grow"); $("#tab-done").setAttribute("aria-selected", t === "done"); renderList(); }
+$("#tab-grow").onclick = () => setTab("grow");
+$("#tab-done").onclick = () => setTab("done");
+$("#lvl").onclick = e => { const b = e.target.closest("button"); if (!b) return; S.lvl = b.dataset.v; fillCourseFilter(); syncFilters(); renderList(); };
+$("#course").onchange = e => { S.course = e.target.value; renderList(); };
+function fillCourseFilter(){
+  const have = new Set(CATALOG.map(b => b.c).concat(S.reqs.map(r => r.c)));
+  const list = ORDER.filter(c => have.has(c) && (S.lvl === "all" || (S.lvl === "중등") === c.startsWith("중")));
+  if (S.course && !list.includes(S.course)) S.course = "";
+  $("#course").innerHTML = `<option value="">과목 전체</option>` + list.map(c => `<option>${esc(c)}</option>`).join("");
+  $("#course").value = S.course;
+}
+$("#pub").onchange = e => { S.pub = e.target.value; renderList(); };
+$("#q").oninput = e => { S.q = e.target.value.trim(); renderList(); };
+function syncFilters(){
+  $("#lvl").querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", b.dataset.v === S.lvl));
+  $("#pub").value = S.pub; $("#q").value = S.q; $("#course").value = S.course;
+}
+function fillPubFilter(){
+  const pubs = [...new Set(CATALOG.map(b => b.p).concat(S.reqs.map(r => r.p)))].sort((a,b) => a.localeCompare(b,"ko"));
+  $("#pub").innerHTML = `<option value="">출판사 전체</option>` + pubs.map(p => `<option>${esc(p)}</option>`).join("");
+  $("#pub").value = S.pub;
+}
+
+/* ---------- request form: 교보문고 link + admin approval ---------- */
+let fLvl = "중등";
+const KYOBO_RE = /^https?:\/\/(?:product|m\.product)\.kyobobook\.co\.kr\/(?:detail|m\/detail)\/S\d{9,15}|^https?:\/\/[a-z.]*kyobobook\.co\.kr\/.*[?&]barcode=\d{13}/;
+function fillForm(){
+  fillCourses();
+  $("#f-pubs").innerHTML = [...new Set(PUBS.concat(CATALOG.map(b => b.p)))].sort((a, b) => a.localeCompare(b, "ko")).map(p => `<option value="${esc(p)}">`).join("");
+}
+function fillCourses(){ $("#f-course").innerHTML = `<option value="">과목을 고르세요</option>` + COURSES[fLvl].map(c => `<option>${c}</option>`).join(""); }
+$("#f-lvl").onclick = e => { const b = e.target.closest("button"); if (!b) return; fLvl = b.dataset.v; $("#f-lvl").querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === b)); fillCourses(); };
+$("#f-title").addEventListener("input", () => { $("#f-kb").href = "https://search.kyobobook.co.kr/search?keyword=" + encodeURIComponent($("#f-title").value.trim()); });
+
+/* does a typed title contain a masked series name? ("라이트쎈 중등 수학" vs "라이트ㅆ", "RPM 중학" vs "R*M") */
+function containsMasked(title, masked){
+  const t = norm(title), m = norm(masked);
+  if (m.length < 1) return false;
+  for (let i = 0; i + m.length <= t.length; i++){ let ok = true; for (let j = 0; j < m.length; j++) if (!chMatch(m[j], t[i + j])) { ok = false; break; } if (ok) return true; }
+  return false;
+}
+/* the popup (built into the page; alert() is never used) */
+let modalBack = null;
+function showModal({title, text, stage, fruit, actions}){
+  const m = $("#modal");
+  $("#modal-h").textContent = title;
+  $("#modal-p").innerHTML = text;
+  $("#modal-tree").innerHTML = treeSvg(stage, fruit, "");
+  $("#modal-actions").innerHTML = actions.map((a, i) => `<button class="${a.primary ? "btn" : "mini"}" data-mi="${i}">${esc(a.label)}</button>`).join("");
+  m._actions = actions; modalBack = document.activeElement; m.hidden = false;
+  const first = m.querySelector("[data-mi]"); if (first) first.focus();
+}
+function closeModal(){ $("#modal").hidden = true; if (modalBack && modalBack.focus) modalBack.focus({preventScroll:true}); }
+$("#modal").addEventListener("click", e => {
+  const b = e.target.closest("[data-mi]");
+  if (b){ const a = $("#modal")._actions[+b.dataset.mi]; closeModal(); if (a.run) a.run(); return; }
+  if (e.target === $("#modal")) closeModal();
+});
+document.addEventListener("keydown", e => { if (e.key === "Escape" && !$("#modal").hidden) closeModal(); });
+function sendHeart(id){ if (!S.mine.has(id)){ const btn = document.querySelector(`.heart-btn[data-id="${CSS.escape(id)}"]`) || $("#f-go"); vote(id, btn); } jumpTo(id); }
+function alreadyPopup(forestId, released, opts = {}){
+  const b = (released ? CATALOG : allGrowing()).find(x => x.id === forestId);
+  const name = esc(b ? b.t + " " + b.c : "이 교재");
+  if (released){
+    showModal({title: "이미 열매 맺은 교재예요!", stage: 4, fruit: true,
+      text: `<b>${name}</b><br>숫자변형 문항이 벌써 나와 있어요. 문제은행에서 바로 쓸 수 있어요.`,
+      actions: [{label: "열매 보러 가기", primary: true, run: () => setTab("done")}].concat(opts.anyway ? [{label: "다른 교재예요, 요청할게요", run: opts.anyway}] : []).concat([{label: "닫기"}])});
+    return;
+  }
+  const rank = ranked().findIndex(x => x.id === forestId) + 1, h = heartsOf(forestId), on = S.mine.has(forestId);
+  showModal({title: "이미 숲에 있는 교재예요!", stage: stageOf(h), fruit: false,
+    text: `<b>${name}</b><br>${rank ? `지금 <b>${rank}위</b>로 ` : ""}자라고 있어요 (♥ ${h}). ${on ? "이미 하트를 보냈어요." : "하트를 보내면 더 빨리 자라요."}`,
+    actions: [on ? {label: "보러 가기", primary: true, run: () => jumpTo(forestId)} : {label: "하트 보내기 ♥", primary: true, run: () => sendHeart(forestId)}]
+      .concat(opts.anyway ? [{label: "다른 교재예요, 요청할게요", run: opts.anyway}] : []).concat([{label: "닫기"}])});
+}
+
+$("#form").addEventListener("submit", e => { e.preventDefault(); submitRequest(false); });
+async function submitRequest(skipCheck){
+  const title = $("#f-title").value.trim(), publisher = $("#f-pub").value.trim(), course = $("#f-course").value, url = $("#f-url").value.trim();
+  if (!course){ toast("과목을 골라 주세요."); $("#f-course").focus(); return; }
+  if (title.length < 2){ toast("교재명을 적어 주세요."); $("#f-title").focus(); return; }
+  if (!publisher){ toast("출판사를 적어 주세요."); $("#f-pub").focus(); return; }
+  if (!KYOBO_RE.test(url)){
+    showModal({title: "교보문고 링크가 필요해요", stage: 0, fruit: false,
+      text: "교보문고에서 교재를 찾아 상품 페이지 주소를 붙여 넣어 주세요.<br><b>product.kyobobook.co.kr/detail/S…</b> 모양이에요.",
+      actions: [{label: "교보문고에서 찾기", primary: true, run: () => window.open($("#f-kb").href, "_blank", "noopener")}, {label: "닫기"}]});
+    return;
+  }
+  // friendly duplicate check before sending: same subject and the forest's (masked) name appears in the title
+  if (!skipCheck){
+    const anyway = () => submitRequest(true);
+    const hit = CATALOG.find(b => b.c === course && containsMasked(title, b.t)) || S.reqs.find(r => r.c === course && containsMasked(title, r.t));
+    if (hit){ alreadyPopup(hit.id, hit.s === "released", {anyway}); return; }
+  }
+  if ((S.myReqList || []).filter(r => r.status !== "rejected").length >= 20){ toast("씨앗은 한 사람당 20개까지 심을 수 있어요."); return; }
+  const btn = $("#f-go"), rect = btn.getBoundingClientRect();
+  btn.disabled = true;
+  try {
+    const r = await withRetry(() => api.createRequest({url, title, publisher, course}));
+    if (r.id) S.recent.set(r.id, Date.now());
+    if (r.status === "released" || r.status === "exists"){ await refresh(); alreadyPopup(r.id, r.status === "released"); }
+    else if (r.status === "pending_exists")
+      showModal({title: "이미 누군가 요청했어요!", stage: 0, fruit: false, text: "같은 교재를 먼저 요청한 분이 있어서 관리자가 확인하고 있어요. 숲에 심어지면 하트를 보내 주세요.", actions: [{label: "좋아요", primary: true}]});
+    else if (r.status === "invalid_link") toast("교보문고 상품 링크를 확인해 주세요.");
+    else if (r.status === "limit") toast("씨앗은 한 사람당 20개까지 심을 수 있어요.");
+    else {
+      burst(rect.left + rect.width / 2, rect.top);
+      $("#f-title").value = ""; $("#f-url").value = "";
+      await refresh();
+      showModal({title: "씨앗을 보냈어요!", stage: 1, fruit: false,
+        text: "관리자가 교보문고 링크와 중복 여부를 확인한 뒤 숲에 심어 드려요. 진행 상황은 <b>내가 심은 씨앗</b>에서 볼 수 있어요." + (api.demo ? "<br>(데모 모드라서 잠시 뒤 바로 심어져요)" : ""),
+        actions: [{label: "좋아요", primary: true}]});
+    }
+  } catch (e){ apiError(e); }
+  finally { btn.disabled = false; }
+}
+async function deleteRequest(id){
+  S.confirmDel = null;
+  const keep = {reqs: S.reqs, list: S.myReqList, count: S.counts.get(id), mine: S.mine.has(id)};
+  S.reqs = S.reqs.filter(r => r.id !== id); S.myReqList = (S.myReqList || []).filter(r => r.id !== id); S.counts.delete(id); S.mine.delete(id);
+  render();
+  try { await withRetry(() => api.deleteRequest(id)); toast("씨앗을 뽑았어요."); }
+  catch (e){ Object.assign(S, {reqs: keep.reqs, myReqList: keep.list}); if (keep.count) S.counts.set(id, keep.count); if (keep.mine) S.mine.add(id); render(); apiError(e); }
+}
+document.addEventListener("click", e => {
+  const a = e.target.closest("[data-ask]"); if (a){ S.confirmDel = a.dataset.ask; renderMyReqs(); const d = $("#myreqs [data-del]"); if (d) d.focus(); return; }
+  const d = e.target.closest("[data-del]"); if (d) return deleteRequest(d.dataset.del);
+  if (e.target.closest("[data-cancel]")){ S.confirmDel = null; renderMyReqs(); }
+});
+
+/* ---------- sync: everyone's hearts, polled every few seconds ---------- */
+function applyState(st){
+  if (!st || st.unchanged) return;
+  const old = S.counts;
+  S.version = st.version;
+  const counts = new Map(Object.entries(st.counts || {}).filter(([, n]) => typeof n === "number"));
+  const mine = new Set((st.mine && st.mine.votes) || []);
+  pendingVotes.forEach((on, id) => { counts.set(id, S.counts.get(id) || 0); on ? mine.add(id) : mine.delete(id); });
+  if (S.loaded){ // hearts from other people: one toast, flash their cards
+    const now = Date.now();
+    const up = [...counts].filter(([id, n]) => n > (old.get(id) || 0) && !(now - (S.recent.get(id) || 0) < 8000)).map(([id]) => id);
+    S.counts = counts;
+    if (up.length){
+      remoteHeart(allGrowing().find(x => x.id === up[0]));
+      requestAnimationFrame(() => up.forEach(id => { const el = document.getElementById("b-" + id); if (el){ el.classList.remove("flash"); void el.offsetWidth; el.classList.add("flash"); } }));
+    }
+  } else S.counts = counts;
+  S.mine = mine;
+  S.myReqList = (st.myRequests || []).filter(r => r && r.id);
+  S.reqs = (st.requests || []).filter(r => r && r.id && r.title && r.course).map(r => ({
+    id: String(r.id), t: String(r.title).slice(0, 40), p: String(r.publisher || "").slice(0, 20),
+    l: r.level === "고등" ? "고등" : "중등", c: String(r.course), s: "request", mine: !!r.mine}));
+  if (S.confirmDel && !S.reqs.some(r => r.id === S.confirmDel)) S.confirmDel = null;
+  if (!S.loaded){ S.loaded = true; setTimeout(() => { S.forestArmed = true; }, 800); }
+  fillPubFilter(); fillCourseFilter(); scheduleRender();
+}
+let syncing = null, syncT = null;
+function refresh(){
+  if (syncing) return syncing;
+  syncing = api.getState(S.version).then(st => {
+    applyState(st);
+    setStatus(api.demo ? "local" : "live", api.demo ? "데모 모드예요. 하트와 요청이 이 브라우저에만 저장돼요." : "실시간 순위 · 링크로 들어온 모든 사람의 하트가 합쳐져요. 다시 누르면 취소돼요.");
+  }).catch(() => setStatus("", "숲과 연결이 잠시 끊겼어요. 다시 연결하는 중…"))
+    .finally(() => { syncing = null; });
+  return syncing;
+}
+function loop(){
+  clearTimeout(syncT);
+  refresh().finally(() => { syncT = setTimeout(loop, document.hidden ? CONFIG.hiddenPollMs : CONFIG.pollMs); });
+}
+document.addEventListener("visibilitychange", () => { if (!document.hidden) loop(); });
+
+/* Supabase: database functions from supabase.sql. Each browser gets an anonymous login (one heart per book per browser). */
+function supabaseApi(url, key){
+  const sb = window.supabase.createClient(url, key, {auth: {persistSession: true, autoRefreshToken: true}});
+  let ready = null;
+  const session = () => ready || (ready = (async () => {
+    const {data} = await sb.auth.getSession();
+    if (!data.session){ const {error} = await sb.auth.signInAnonymously(); if (error) throw Object.assign(new Error(error.message), {status: 401}); }
+  })().catch(e => { ready = null; throw e; }));
+  const STATUS = {"28000": 401, "42501": 403, "P0002": 404, "22023": 422, "23505": 409};
+  const rpc = async (fn, args) => {
+    await session();
+    const {data, error} = await sb.rpc(fn, args || {});
+    if (error) throw Object.assign(new Error(error.message), {status: STATUS[error.code] || (error.code === "PGRST301" ? 401 : 500), code: error.code});
+    return data;
+  };
+  return {
+    demo: false,
+    getState: () => rpc("tf_state"),
+    vote: (id, on) => rpc("tf_vote", {p_target: id, p_on: on}).then(count => ({id, count})),
+    createRequest: ({url, title, publisher, course}) => rpc("tf_request", {p_url: url, p_title: title, p_publisher: publisher, p_course: course}),
+    deleteRequest: id => rpc("tf_delete_request", {p_id: id}),
+    getCatalog: () => rpc("tf_catalog"),
+  };
+}
+
+/* demo mode: same interface, kept in this browser only; requests are approved by themselves after a moment */
+function demoApi(){
+  const KEY = "tf-demo-v2";
+  let mem = {votes: [], reqs: []};
+  const load = () => { try { const v = JSON.parse(localStorage.getItem(KEY) || "null"); if (v) return {votes: v.votes || [], reqs: v.reqs || []}; } catch {} return {votes: mem.votes.slice(), reqs: mem.reqs.map(r => ({...r}))}; };
+  const save = d => { mem = d; try { localStorage.setItem(KEY, JSON.stringify(d)); } catch {} };
+  const kid = u => (u.match(/S\d{9,15}/) || u.match(/barcode=(\d{13})/) || [""])[0];
+  const wait = v => new Promise(r => setTimeout(() => r(v), 120));
+  return {
+    demo: true,
+    getState: () => {
+      const d = load(), now = Date.now();
+      d.reqs.forEach(r => { if (r.status === "pending" && now - r.at > 4000) r.status = "approved"; }); save(d);
+      const ok = new Set(CATALOG.filter(b => b.s === "making").map(b => b.id).concat(d.reqs.filter(r => r.status === "approved").map(r => r.id)));
+      const counts = {}; d.votes.forEach(id => { if (ok.has(id)) counts[id] = (counts[id] || 0) + 1; });
+      const pub = r => ({id: r.id, title: maskName(r.title), publisher: r.publisher, level: r.course.startsWith("중") ? "중등" : "고등", course: r.course, createdAt: r.at, mine: true, status: r.status});
+      return wait({version: String(now), counts, mine: {votes: d.votes}, requests: d.reqs.filter(r => r.status === "approved").map(pub), myRequests: d.reqs.map(pub).reverse()});
+    },
+    vote: (id, on) => { const d = load(); d.votes = d.votes.filter(x => x !== id); if (on) d.votes.push(id); save(d); return wait({id, count: on ? 1 : 0}); },
+    createRequest: ({url, title, publisher, course}) => {
+      const d = load(), k = kid(url);
+      if (!k) return wait({status: "invalid_link"});
+      const same = d.reqs.find(r => r.kid === k);
+      if (same){ if (same.status === "approved"){ if (!d.votes.includes(same.id)) d.votes.push(same.id); save(d); return wait({status: "exists", id: same.id}); } return wait({status: "pending_exists", id: same.id}); }
+      if (d.reqs.length >= 20) return wait({status: "limit"});
+      const id = "r-demo-" + Date.now().toString(36);
+      d.reqs.push({id, kid: k, title, publisher, course, status: "pending", at: Date.now()}); d.votes.push(id); save(d);
+      setTimeout(() => refresh(), 4300);
+      return wait({status: "pending", id});
+    },
+    deleteRequest: id => { const d = load(); d.reqs = d.reqs.filter(r => r.id !== id); d.votes = d.votes.filter(x => x !== id); save(d); return wait({}); },
+    getCatalog: () => wait(null),
+  };
+}
+const api = CONFIG.supabaseUrl && CONFIG.supabaseKey && window.supabase ? supabaseApi(CONFIG.supabaseUrl, CONFIG.supabaseKey) : demoApi();
+
+/* ---------- day & night: real sunrise/sunset for Seoul (solar position formulas, as in suncalc) ---------- */
+const SKY = {lat: 37.5665, lng: 126.978};
+function sunTimes(date, lat, lng){
+  const rad = Math.PI / 180, J0 = 0.0009, J2000 = 2451545, e = rad * 23.4397;
+  const d = date.valueOf() / 864e5 - 0.5 + 2440588 - J2000, lw = rad * -lng, phi = rad * lat;
+  const n = Math.round(d - J0 - lw / (2 * Math.PI)), ds = J0 + lw / (2 * Math.PI) + n;
+  const M = rad * (357.5291 + 0.98560028 * ds);
+  const C = rad * (1.9148 * Math.sin(M) + 0.02 * Math.sin(2 * M) + 0.0003 * Math.sin(3 * M));
+  const L = M + C + rad * 102.9372 + Math.PI;
+  const dec = Math.asin(Math.sin(L) * Math.sin(e));
+  const noon = J2000 + ds + 0.0053 * Math.sin(M) - 0.0069 * Math.sin(2 * L);
+  const w = Math.acos((Math.sin(rad * -0.833) - Math.sin(phi) * Math.sin(dec)) / (Math.cos(phi) * Math.cos(dec)));
+  const set = J2000 + J0 + (w + lw) / (2 * Math.PI) + n + 0.0053 * Math.sin(M) - 0.0069 * Math.sin(2 * L);
+  const toDate = j => new Date((j + 0.5 - 2440588) * 864e5);
+  return {rise: toDate(noon - (set - noon)), set: toDate(set)};
+}
+/* sky colours through the day: [minute of day, top colour, bottom colour], anchored on the real sunrise/sunset */
+function skyKeys(rise, set){
+  return [[0, "#1E2650", "#1F3542"], [rise - 70, "#28315E", "#23404A"], [rise - 20, "#7C6FA8", "#E8A9A0"],
+    [rise + 20, "#F7B9A4", "#FDE3C0"], [rise + 120, "#BFE7F5", "#E2F4E6"], [720, "#93D3F2", "#DDF3F8"],
+    [set - 120, "#BCE3F0", "#F3EED2"], [set - 30, "#FFC98F", "#FBE3BE"], [set + 10, "#F08A78", "#F7C08E"],
+    [set + 45, "#5A4E8C", "#3F4C78"], [set + 90, "#28315E", "#23404A"], [1440, "#1E2650", "#1F3542"]];
+}
+const hex2 = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
+const mixHex = (a, b, t) => "#" + hex2(a).map((v, i) => Math.round(v + (hex2(b)[i] - v) * t).toString(16).padStart(2, "0")).join("");
+function skyAt(keys, m){
+  for (let i = 1; i < keys.length; i++) if (m <= keys[i][0]){
+    const [m0, a0, b0] = keys[i - 1], [m1, a1, b1] = keys[i], t = (m - m0) / Math.max(1, m1 - m0);
+    return [mixHex(a0, a1, t), mixHex(b0, b1, t)];
+  }
+  return [keys.at(-1)[1], keys.at(-1)[2]];
+}
+const seoulMin = d => { const [h, m] = d.toLocaleTimeString("en-GB", {timeZone: "Asia/Seoul", hour: "2-digit", minute: "2-digit", hour12: false}).split(":").map(Number); return (h % 24) * 60 + m; };
+const hhmm = m => `${String(Math.floor(m / 60) % 24).padStart(2, "0")}:${String(m % 60).padStart(2, "0")}`;
+const SKYS = {live: true, min: 720, rise: 433, set: 1042, keys: null, day: ""};
+function phaseOf(m){
+  const {rise, set} = SKYS;
+  if (m < rise - 60 || m >= set + 60) return "밤";
+  if (m < rise + 60) return "새벽";
+  if (m < 660) return "아침";
+  if (m < 840) return "점심";
+  if (m < set - 60) return "오후";
+  return "저녁";
+}
+/* sun by day, moon by night, on an arc that starts and ends behind the hills */
+function placeOrb(){
+  const hero = document.querySelector(".hero"), orb = document.querySelector(".orb"), f = $("#forest");
+  if (!hero || !orb || !f) return;
+  const {min: m, rise, set} = SKYS, nightStart = set + 40, nightEnd = rise - 25;
+  const night = m < nightEnd || m > nightStart;
+  const p = night ? ((m - nightStart + 1440) % 1440) / Math.max(1, 1440 - nightStart + nightEnd) : (m - rise) / Math.max(1, set - rise);
+  const H = hero.getBoundingClientRect(), F = f.getBoundingClientRect();
+  const horizon = F.top - H.top + F.height * 0.5, topY = Math.min(80, horizon * 0.25);
+  const q = Math.min(Math.max(p, -0.12), 1.12);
+  // wide screens: keep the arc over the open sky right of the title; narrow screens: the whole width
+  const [x0, x1] = H.width > 900 ? [0.42, 0.95] : [0.1, 0.9];
+  orb.style.left = ((x0 + (x1 - x0) * Math.min(Math.max(p, 0), 1)) * H.width).toFixed(0) + "px";
+  orb.style.top = (horizon - Math.sin(Math.PI * q) * (horizon - topY)).toFixed(0) + "px";
+  const alt = Math.max(0, Math.sin(Math.PI * Math.min(Math.max(p, 0), 1)));
+  document.documentElement.style.setProperty("--orb-c", night ? "#FFEDB0" : mixHex("#FF8A4C", "#FFD65A", Math.min(1, alt * 2.4)));
+}
+function paintSky(){
+  const m = SKYS.min, [top, bottom] = skyAt(SKYS.keys, m), root = document.documentElement;
+  root.style.setProperty("--sky", top); root.style.setProperty("--sky-2", bottom);
+  root.dataset.sky = (m < SKYS.rise - 25 || m > SKYS.set + 40) ? "night" : "day";
+  const ph = phaseOf(m);
+  $("#st-phase").textContent = ph; $("#st-time").textContent = hhmm(m);
+  $("#st-live").hidden = !SKYS.live; $("#st-now").hidden = SKYS.live;
+  const r = $("#st-range"); if (+r.value !== m) r.value = m;
+  r.setAttribute("aria-valuetext", `${ph} ${hhmm(m)}`);
+  placeOrb();
+}
+function setupSkyDay(){
+  const now = new Date(), t = sunTimes(now, SKY.lat, SKY.lng), day = now.toLocaleDateString("en-CA", {timeZone: "Asia/Seoul"});
+  if (SKYS.day === day) return;
+  SKYS.day = day; SKYS.rise = seoulMin(t.rise); SKYS.set = seoulMin(t.set); SKYS.keys = skyKeys(SKYS.rise, SKYS.set);
+  // the slider track shows the whole day's sky
+  $("#st-range").style.setProperty("--st-track", "linear-gradient(90deg," + SKYS.keys.map(k => `${k[1]} ${(k[0] / 14.4).toFixed(1)}%`).join(",") + ")");
+  const ticks = [["새벽", SKYS.rise - 30], ["아침", Math.max(SKYS.rise + 100, 560)], ["점심", 750], ["저녁", SKYS.set + 5], ["밤", Math.min(SKYS.set + 170, 1390)]];
+  $("#st-ticks").innerHTML = ticks.map(([n, m]) => `<span style="left:${(m / 14.35).toFixed(1)}%">${n}</span>`).join("");
+  $("#st-sun").textContent = `오늘 서울 해돋이 ${hhmm(SKYS.rise)} · 해넘이 ${hhmm(SKYS.set)}`;
+}
+function applySky(){
+  setupSkyDay();
+  if (SKYS.live) SKYS.min = Math.round(seoulMin(new Date()) / 5) * 5 % 1440;
+  paintSky();
+}
+$("#st-range").addEventListener("input", e => { SKYS.live = false; SKYS.min = +e.target.value; paintSky(); });
+$("#st-now").addEventListener("click", () => { SKYS.live = true; applySky(); $("#st-range").focus(); });
+applySky(); setInterval(applySky, 60000);
+window.addEventListener("resize", () => placeOrb());
+
+/* ---------- boot ---------- */
+fillPubFilter(); fillCourseFilter(); fillForm(); render();
+(async () => {
+  // the server's catalog (released + in-production books) replaces the copy built into this page
+  try { const items = await api.getCatalog(); if (Array.isArray(items) && items.length) CATALOG.splice(0, CATALOG.length, ...items); } catch {}
+  loop();
+})();
+</script>
+
+</body>
+</html>
